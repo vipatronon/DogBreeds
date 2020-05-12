@@ -36,5 +36,9 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".editProfile.EditProfileActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+
     </application>
 </manifest>

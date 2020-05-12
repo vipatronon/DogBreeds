@@ -1,5 +1,7 @@
 package com.victor.dogbreeds.di
 
+import com.victor.dogbreeds.editProfile.EditProfileContract
+import com.victor.dogbreeds.editProfile.EditProfilePresenter
 import com.victor.dogbreeds.home.HomeContract
 import com.victor.dogbreeds.home.HomePresenter
 import com.victor.dogbreeds.signIn.SignInContract
@@ -26,6 +28,10 @@ object AppModules {
 
         factory<HomeContract.Presenter> { (view: HomeContract.View) ->
             HomePresenter(view)
+        }
+
+        factory<EditProfileContract.Presenter> { (view: EditProfileContract.View) ->
+            EditProfilePresenter(view)
         }
     }
 }
