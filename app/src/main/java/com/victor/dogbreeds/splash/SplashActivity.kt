@@ -10,7 +10,6 @@ class SplashActivity : BaseActivity(), SplashContract.View {
     private val presenter: SplashPresenter by inject { parametersOf(this) }
 
     override fun start() {
-        presenter.checkSignedInStatus()
     }
 
     override fun setEvents() {
