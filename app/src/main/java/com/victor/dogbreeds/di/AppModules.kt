@@ -1,5 +1,7 @@
 package com.victor.dogbreeds.di
 
+import com.victor.dogbreeds.home.HomeContract
+import com.victor.dogbreeds.home.HomePresenter
 import com.victor.dogbreeds.signIn.SignInContract
 import com.victor.dogbreeds.signIn.SignInPresenter
 import com.victor.dogbreeds.signUp.SignUpContract
@@ -18,8 +20,12 @@ object AppModules {
             SignInPresenter(view)
         }
 
-        factory <SignUpContract.Presenter> { (view: SignUpContract.View) ->
+        factory<SignUpContract.Presenter> { (view: SignUpContract.View) ->
             SignUpPresenter(view)
+        }
+
+        factory<HomeContract.Presenter> { (view: HomeContract.View) ->
+            HomePresenter(view)
         }
     }
 }
