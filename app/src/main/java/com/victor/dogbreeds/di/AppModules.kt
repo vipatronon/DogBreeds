@@ -1,5 +1,7 @@
 package com.victor.dogbreeds.di
 
+import com.victor.dogbreeds.breedDetails.BreedDetailsContract
+import com.victor.dogbreeds.breedDetails.BreedDetailsPresenter
 import com.victor.dogbreeds.editProfile.EditProfileContract
 import com.victor.dogbreeds.editProfile.EditProfilePresenter
 import com.victor.dogbreeds.home.HomeContract
@@ -32,6 +34,10 @@ object AppModules {
 
         factory<EditProfileContract.Presenter> { (view: EditProfileContract.View) ->
             EditProfilePresenter(view)
+        }
+
+        factory<BreedDetailsContract.Presenter> { (view: BreedDetailsContract.View) ->
+            BreedDetailsPresenter(view)
         }
     }
 }
