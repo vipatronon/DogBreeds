@@ -9,7 +9,7 @@ import org.koin.core.parameter.parametersOf
 
 class HomeActivity: BaseActivity(), HomeContract.View {
     override val layoutResource: Int = R.layout.activity_home
-    private val presenter: HomePresenter by inject { parametersOf(this) }
+    private val presenter: HomeContract.Presenter by inject { parametersOf(this) }
 
     companion object {
         fun newInstance(context: Context): Intent{

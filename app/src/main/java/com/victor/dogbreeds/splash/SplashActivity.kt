@@ -7,9 +7,10 @@ import org.koin.core.parameter.parametersOf
 
 class SplashActivity : BaseActivity(), SplashContract.View {
     override val layoutResource: Int = R.layout.activity_splash
-    private val presenter: SplashPresenter by inject { parametersOf(this) }
+    private val presenter: SplashContract.Presenter by inject { parametersOf(this) }
 
     override fun start() {
+        presenter.checkSignedInStatus()
     }
 
     override fun setEvents() {

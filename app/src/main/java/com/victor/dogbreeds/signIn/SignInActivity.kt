@@ -9,7 +9,7 @@ import org.koin.core.parameter.parametersOf
 
 class SignInActivity : BaseActivity(), SignInContract.View {
     override val layoutResource: Int = R.layout.activity_sign_in
-    private val presenter: SignInPresenter by inject { parametersOf(this) }
+    private val presenter: SignInContract.Presenter by inject { parametersOf(this) }
 
     companion object {
         fun newInstance(context: Context): Intent {
