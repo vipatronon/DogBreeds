@@ -2,6 +2,7 @@ package com.victor.dogbreeds.splash
 
 import com.victor.dogbreeds.R
 import com.victor.dogbreeds.base.BaseActivity
+import com.victor.dogbreeds.signIn.SignInActivity
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
@@ -11,6 +12,7 @@ class SplashActivity : BaseActivity(), SplashContract.View {
 
     override fun start() {
         presenter.checkSignedInStatus()
+        startActivity(SignInActivity.newInstance(this))
     }
 
     override fun setEvents() {
