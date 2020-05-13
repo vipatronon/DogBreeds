@@ -20,6 +20,12 @@ class HomeActivity: BaseActivity(), HomeContract.View {
     }
 
     override fun start() {
+        presenter.start()
+    }
+
+    override fun onDestroy() {
+        presenter.destroy()
+        super.onDestroy()
     }
 
     override fun setEvents() {

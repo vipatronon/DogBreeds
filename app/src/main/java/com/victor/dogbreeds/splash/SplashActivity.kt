@@ -17,7 +17,6 @@ class SplashActivity : BaseActivity(), SplashContract.View {
         Handler().postDelayed({
             startActivity(SignInActivity.newInstance(this))
         }, 2000)
-
     }
 
     override fun setEvents() {

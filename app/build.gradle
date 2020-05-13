@@ -17,7 +17,14 @@ android {
     }
 
     buildTypes {
+        debug {
+            minifyEnabled false
+            buildConfigField "String", "API_URL", "\"https://dog.ceo/api/breeds/\""
+            debuggable true
+        }
+
         release {
+            buildConfigField "String", "API_URL", "\"https://dog.ceo/api/breeds/\""
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -42,4 +49,12 @@ dependencies {
 
     // Material
     implementation 'com.google.android.material:material:1.0.0'
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.2.1'
+    implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
+    implementation "io.reactivex.rxjava2:rxjava:$rxjava_version"
 }
