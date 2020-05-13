@@ -1,4 +1,4 @@
-package com.victor.dogbreeds.splash
+package com.victor.dogbreeds.ui.splash
 
 class SplashPresenter(
     private val view: SplashContract.View

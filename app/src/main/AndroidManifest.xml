@@ -15,7 +15,7 @@
         tools:ignore="LockedOrientationActivity">
 
         <activity
-            android:name=".splash.SplashActivity"
+            android:name="com.victor.dogbreeds.ui.splash.SplashActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -24,23 +24,23 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".signIn.SignInActivity"
+        <activity android:name="com.victor.dogbreeds.ui.signIn.SignInActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".signUp.SignUpActivity"
+        <activity android:name="com.victor.dogbreeds.ui.signUp.SignUpActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".home.HomeActivity"
+        <activity android:name="com.victor.dogbreeds.ui.home.HomeActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".editProfile.EditProfileActivity"
+        <activity android:name="com.victor.dogbreeds.ui.editProfile.EditProfileActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".breedDetails.BreedDetailsActivity"
+        <activity android:name="com.victor.dogbreeds.ui.breedDetails.BreedDetailsActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
 

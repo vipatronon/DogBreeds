@@ -1,9 +1,9 @@
-package com.victor.dogbreeds.splash
+package com.victor.dogbreeds.ui.splash
 
 import android.os.Handler
 import com.victor.dogbreeds.R
-import com.victor.dogbreeds.base.BaseActivity
-import com.victor.dogbreeds.signIn.SignInActivity
+import com.victor.dogbreeds.ui.base.BaseActivity
+import com.victor.dogbreeds.ui.signIn.SignInActivity
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 

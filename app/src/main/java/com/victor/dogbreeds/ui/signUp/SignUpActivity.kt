@@ -1,9 +1,9 @@
-package com.victor.dogbreeds.signUp
+package com.victor.dogbreeds.ui.signUp
 
 import android.content.Context
 import android.content.Intent
 import com.victor.dogbreeds.R
-import com.victor.dogbreeds.base.BaseActivity
+import com.victor.dogbreeds.ui.base.BaseActivity
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 

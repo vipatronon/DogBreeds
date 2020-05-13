@@ -1,4 +1,4 @@
-package com.victor.dogbreeds.splash
+package com.victor.dogbreeds.ui.splash
 
 interface SplashContract {
     interface View{

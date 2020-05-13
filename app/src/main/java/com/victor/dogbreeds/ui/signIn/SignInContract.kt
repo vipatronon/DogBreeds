@@ -1,4 +1,4 @@
-package com.victor.dogbreeds.signIn
+package com.victor.dogbreeds.ui.signIn
 
 interface SignInContract {
     interface View {

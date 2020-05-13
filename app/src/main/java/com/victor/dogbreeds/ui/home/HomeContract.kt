@@ -1,4 +1,4 @@
-package com.victor.dogbreeds.home
+package com.victor.dogbreeds.ui.home
 
 interface HomeContract {
     interface View {

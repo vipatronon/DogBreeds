@@ -1,9 +1,9 @@
-package com.victor.dogbreeds.breedDetails
+package com.victor.dogbreeds.ui.breedDetails
 
 import android.content.Context
 import android.content.Intent
 import com.victor.dogbreeds.R
-import com.victor.dogbreeds.base.BaseActivity
+import com.victor.dogbreeds.ui.base.BaseActivity
 
 class BreedDetailsActivity: BaseActivity(), BreedDetailsContract.View {
     override val layoutResource: Int = R.layout.activity_breed_details

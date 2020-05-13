@@ -1,20 +1,20 @@
 package com.victor.dogbreeds.di
 
-import com.victor.dogbreeds.breedDetails.BreedDetailsContract
-import com.victor.dogbreeds.breedDetails.BreedDetailsPresenter
+import com.victor.dogbreeds.ui.breedDetails.BreedDetailsContract
+import com.victor.dogbreeds.ui.breedDetails.BreedDetailsPresenter
 import com.victor.dogbreeds.business.Api
 import com.victor.dogbreeds.business.ApiRepository
 import com.victor.dogbreeds.business.ApiRepositoryContract
-import com.victor.dogbreeds.editProfile.EditProfileContract
-import com.victor.dogbreeds.editProfile.EditProfilePresenter
-import com.victor.dogbreeds.home.HomeContract
-import com.victor.dogbreeds.home.HomePresenter
-import com.victor.dogbreeds.signIn.SignInContract
-import com.victor.dogbreeds.signIn.SignInPresenter
-import com.victor.dogbreeds.signUp.SignUpContract
-import com.victor.dogbreeds.signUp.SignUpPresenter
-import com.victor.dogbreeds.splash.SplashContract
-import com.victor.dogbreeds.splash.SplashPresenter
+import com.victor.dogbreeds.ui.editProfile.EditProfileContract
+import com.victor.dogbreeds.ui.editProfile.EditProfilePresenter
+import com.victor.dogbreeds.ui.home.HomeContract
+import com.victor.dogbreeds.ui.home.HomePresenter
+import com.victor.dogbreeds.ui.signIn.SignInContract
+import com.victor.dogbreeds.ui.signIn.SignInPresenter
+import com.victor.dogbreeds.ui.signUp.SignUpContract
+import com.victor.dogbreeds.ui.signUp.SignUpPresenter
+import com.victor.dogbreeds.ui.splash.SplashContract
+import com.victor.dogbreeds.ui.splash.SplashPresenter
 import org.koin.dsl.module
 import retrofit2.Retrofit
 

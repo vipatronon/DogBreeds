@@ -1,9 +1,9 @@
-package com.victor.dogbreeds.editProfile
+package com.victor.dogbreeds.ui.editProfile
 
 import android.content.Context
 import android.content.Intent
 import com.victor.dogbreeds.R
-import com.victor.dogbreeds.base.BaseActivity
+import com.victor.dogbreeds.ui.base.BaseActivity
 
 class EditProfileActivity : BaseActivity(), EditProfileContract.View {
     override val layoutResource: Int = R.layout.activity_edit_profile

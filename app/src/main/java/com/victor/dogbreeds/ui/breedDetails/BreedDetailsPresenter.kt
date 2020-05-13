@@ -1,4 +1,4 @@
-package com.victor.dogbreeds.breedDetails
+package com.victor.dogbreeds.ui.breedDetails
 
 class BreedDetailsPresenter(
     private val view: BreedDetailsContract.View

@@ -1,4 +1,4 @@
-package com.victor.dogbreeds.base
+package com.victor.dogbreeds.ui.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

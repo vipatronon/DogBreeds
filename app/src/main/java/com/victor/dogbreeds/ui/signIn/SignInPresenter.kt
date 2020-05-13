@@ -1,4 +1,4 @@
-package com.victor.dogbreeds.signIn
+package com.victor.dogbreeds.ui.signIn
 
 class SignInPresenter(
     private val view: SignInContract.View

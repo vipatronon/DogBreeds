@@ -1,4 +1,4 @@
-package com.victor.dogbreeds.editProfile
+package com.victor.dogbreeds.ui.editProfile
 
 class EditProfilePresenter (
     private val view: EditProfileContract.View

@@ -1,10 +1,10 @@
-package com.victor.dogbreeds.home
+package com.victor.dogbreeds.ui.home
 
 import android.content.Context
 import android.content.Intent
 import com.victor.dogbreeds.R
-import com.victor.dogbreeds.base.BaseActivity
-import com.victor.dogbreeds.editProfile.EditProfileActivity
+import com.victor.dogbreeds.ui.base.BaseActivity
+import com.victor.dogbreeds.ui.editProfile.EditProfileActivity
 import kotlinx.android.synthetic.main.activity_home.*
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
