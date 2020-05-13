@@ -4,4 +4,7 @@
         <attr name="hintText" format="string"/>
         <attr name="android:inputType" format="integer"/>
     </declare-styleable>
+    <declare-styleable name="BackButton">
+        <attr name="button_color" format="color"/>
+    </declare-styleable>
 </resources>
