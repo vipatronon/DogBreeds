@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Margin attrs -->
+    <dimen name="margin_2">16dp</dimen>
+    <dimen name="margin_3">24dp</dimen>
+    <dimen name="margin_4">36dp</dimen>
+    <dimen name="margin_5">42dp</dimen>
+    <dimen name="margin_6">48dp</dimen>
+    <dimen name="margin_10">80dp</dimen>
+
+    <!-- Font attrs -->
     <dimen name="fontsize_8">56sp</dimen>
-    <dimen name="marginsize_10">80dp</dimen>
+
+    <!-- Button attrs -->
+    <dimen name="button_radius">25dp</dimen>
+    <dimen name="button_elevation">3dp</dimen>
+    <dimen name="button_width">174dp</dimen>
+    <dimen name="button_height">68dp</dimen>
 </resources>
