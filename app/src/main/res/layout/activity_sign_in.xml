@@ -13,7 +13,7 @@
         app:layout_constraintGuide_percent="0.50" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/appLogo"
+        android:id="@+id/signinAppLogo"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
 
@@ -27,7 +27,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.victor.dogbreeds.ui.common.TextField
-        android:id="@+id/email"
+        android:id="@+id/signupEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
@@ -41,7 +41,7 @@
         app:layout_constraintStart_toStartOf="parent"/>
 
     <com.victor.dogbreeds.ui.common.TextField
-        android:id="@+id/password"
+        android:id="@+id/signinPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
