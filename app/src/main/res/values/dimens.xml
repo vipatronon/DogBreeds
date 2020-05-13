@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Margin attrs -->
+    <dimen name="margin_1">8dp</dimen>
     <dimen name="margin_2">16dp</dimen>
     <dimen name="margin_3">24dp</dimen>
     <dimen name="margin_4">36dp</dimen>
@@ -9,6 +10,7 @@
     <dimen name="margin_10">80dp</dimen>
 
     <!-- Font attrs -->
+    <dimen name="fontsize_5">36sp</dimen>
     <dimen name="fontsize_8">56sp</dimen>
 
     <!-- Button attrs -->

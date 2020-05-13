@@ -14,7 +14,7 @@
         android:layout_marginEnd="@dimen/margin_5"
 
         android:layout_marginBottom="@dimen/margin_2"
-        android:hint="@string/signin_usernameTextHint"
+        android:hint="@string/signin_emailTextHint"
         android:textColorHint="@color/colorAccent"
 
         app:layout_constraintTop_toTopOf="parent"

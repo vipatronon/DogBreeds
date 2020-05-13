@@ -18,10 +18,8 @@ class SignUpActivity: BaseActivity(), SignUpContract.View {
     }
 
     override fun start() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun setEvents() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

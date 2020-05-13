@@ -1,10 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
 
-    android:background="@color/colorAccent">
+    <com.victor.dogbreeds.ui.common.BackButton
+        android:id="@+id/signupBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:button_color="@color/colorAccent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/signupHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/fontsize_5"
+        android:layout_marginTop="@dimen/margin_2"
+        android:layout_marginStart="@dimen/margin_3"
+        android:textColor="@color/colorAccent"
+
+        android:fontFamily="@font/bigswash_regular"
+
+        android:text="SignUp"
+
+        app:layout_constraintStart_toEndOf="@+id/signupBackButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.victor.dogbreeds.ui.common.TextField
+        android:id="@+id/signupName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="@dimen/margin_2"
+
+        android:layout_marginTop="@dimen/margin_4"
+
+        android:inputType="textPersonName"
+        app:hintText="@string/signup_personalNameTextHint"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signupHeader" />
+
+    <com.victor.dogbreeds.ui.common.TextField
+        android:id="@+id/signupEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="@dimen/margin_2"
+
+        android:layout_marginTop="@dimen/margin_4"
+
+        android:inputType="textEmailAddress"
+        app:hintText="@string/signup_emailTextHint"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signupName" />
+
+    <com.victor.dogbreeds.ui.common.TextField
+        android:id="@+id/signupPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="@dimen/margin_2"
+
+        android:layout_marginTop="@dimen/margin_4"
+
+        android:inputType="textEmailAddress"
+        app:hintText="@string/signup_passwordTextHint"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signupEmail" />
+
+    <com.victor.dogbreeds.ui.common.TextField
+        android:id="@+id/signupBirthdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="@dimen/margin_2"
+
+        android:layout_marginTop="@dimen/margin_4"
+
+        android:inputType="textEmailAddress"
+        app:hintText="@string/signup_birthdateTextHint"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signupPassword" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/signinSignInButton"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="@dimen/button_width"
+
+        android:layout_height="@dimen/button_height"
+        android:layout_marginBottom="@dimen/margin_4"
+
+        android:backgroundTint="@color/colorAccent"
+
+        android:elevation="@dimen/button_elevation"
+
+        android:text="@string/signin_signInTextButton"
+        android:textColor="@color/colorPrimary"
+        android:textAllCaps="false"
+        app:cornerRadius="@dimen/button_radius"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

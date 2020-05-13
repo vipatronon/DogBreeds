@@ -4,6 +4,9 @@ import android.content.Context
 import android.content.Intent
 import com.victor.dogbreeds.R
 import com.victor.dogbreeds.base.BaseActivity
+import com.victor.dogbreeds.home.HomeActivity
+import com.victor.dogbreeds.signUp.SignUpActivity
+import kotlinx.android.synthetic.main.activity_sign_in.*
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
@@ -21,5 +24,12 @@ class SignInActivity : BaseActivity(), SignInContract.View {
     }
 
     override fun setEvents() {
+        signinSignupButton.setOnClickListener {
+            startActivity(SignUpActivity.newInstance(this))
+        }
+
+        signinSignInButton.setOnClickListener {
+            startActivity(HomeActivity.newInstance(this))
+        }
     }
 }
