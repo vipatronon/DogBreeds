@@ -10,6 +10,7 @@
     <dimen name="margin_10">80dp</dimen>
 
     <!-- Font attrs -->
+    <dimen name="fontsize_3">24sp</dimen>
     <dimen name="fontsize_5">36sp</dimen>
     <dimen name="fontsize_8">56sp</dimen>
 
@@ -18,4 +19,9 @@
     <dimen name="button_elevation">3dp</dimen>
     <dimen name="button_width">174dp</dimen>
     <dimen name="button_height">68dp</dimen>
+
+    <!-- Home attrs -->
+    <dimen name="homeScreen_labelHeight">56dp</dimen>
+    <dimen name="homeScreen_applogo">36dp</dimen>
+    <dimen name="homeScreen_profilePicture">30dp</dimen>
 </resources>

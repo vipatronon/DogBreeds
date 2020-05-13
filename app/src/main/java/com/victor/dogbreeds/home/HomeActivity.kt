@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.Intent
 import com.victor.dogbreeds.R
 import com.victor.dogbreeds.base.BaseActivity
+import com.victor.dogbreeds.editProfile.EditProfileActivity
+import kotlinx.android.synthetic.main.activity_home.*
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
@@ -18,10 +20,11 @@ class HomeActivity: BaseActivity(), HomeContract.View {
     }
 
     override fun start() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun setEvents() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        homeProfileButton.setOnClickListener {
+            startActivity(EditProfileActivity.newInstance(this))
+        }
     }
 }

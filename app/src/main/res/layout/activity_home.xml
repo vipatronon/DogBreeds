@@ -1,10 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
 
-    android:background="@color/colorAccent">
+    <View
+        android:id="@+id/homeLabel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/homeScreen_labelHeight"
+        android:background="@color/colorAccent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/homeAppLogo"
+
+        android:layout_width="@dimen/homeScreen_applogo"
+        android:layout_height="@dimen/homeScreen_applogo"
+
+        android:layout_marginStart="@dimen/margin_1"
+
+        android:src="@drawable/ic_dog_silhouette"
+
+        app:layout_constraintBottom_toBottomOf="@+id/homeLabel"
+        app:layout_constraintStart_toStartOf="@+id/homeLabel"
+        app:layout_constraintTop_toTopOf="@+id/homeLabel" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/homeSearchButton"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:fontFamily="@font/bigswash_regular"
+
+        android:text="Search a breed"
+
+        android:textColor="@color/colorFont"
+
+        android:textSize="@dimen/fontsize_3"
+        app:layout_constraintBottom_toBottomOf="@+id/homeLabel"
+        app:layout_constraintEnd_toEndOf="@+id/homeLabel"
+        app:layout_constraintStart_toStartOf="@id/homeLabel"
+        app:layout_constraintTop_toTopOf="@+id/homeLabel" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/homeProfileButton"
+        android:layout_width="@dimen/homeScreen_profilePicture"
+        android:layout_height="@dimen/homeScreen_profilePicture"
+
+        android:layout_marginEnd="@dimen/margin_1"
+
+        android:src="@drawable/ic_profile_picture"
+        app:layout_constraintBottom_toBottomOf="@+id/homeLabel"
+        app:layout_constraintEnd_toEndOf="@+id/homeLabel"
+        app:layout_constraintTop_toTopOf="@+id/homeLabel" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/homeBreedsList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_2"
+        android:clipToPadding="false"
+
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/homeLabel"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
