@@ -6,7 +6,7 @@
     android:background="@color/colorPrimary">
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/fieldsGuideline"
+        android:id="@+id/signinFieldsGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -42,7 +42,7 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <com.victor.dogbreeds.ui.common.TextField
-        android:id="@+id/signupEmail"
+        android:id="@+id/signinEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
@@ -51,7 +51,7 @@
         app:hintText="@string/signin_emailTextHint"
         android:inputType="textEmailAddress"
 
-        app:layout_constraintBottom_toTopOf="@+id/fieldsGuideline"
+        app:layout_constraintBottom_toTopOf="@+id/signinFieldsGuideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
@@ -67,7 +67,7 @@
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fieldsGuideline"/>
+        app:layout_constraintTop_toBottomOf="@+id/signinFieldsGuideline"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/signinSignupButton"
