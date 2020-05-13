@@ -1,5 +1,6 @@
 package com.victor.dogbreeds.splash
 
+import android.os.Handler
 import com.victor.dogbreeds.R
 import com.victor.dogbreeds.base.BaseActivity
 import com.victor.dogbreeds.signIn.SignInActivity
@@ -12,7 +13,11 @@ class SplashActivity : BaseActivity(), SplashContract.View {
 
     override fun start() {
         presenter.checkSignedInStatus()
-        startActivity(SignInActivity.newInstance(this))
+
+        Handler().postDelayed({
+            startActivity(SignInActivity.newInstance(this))
+        }, 2000)
+
     }
 
     override fun setEvents() {

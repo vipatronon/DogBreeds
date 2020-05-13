@@ -12,4 +12,14 @@
     <string name="signup_emailTextHint">E-mail</string>
     <string name="signup_passwordTextHint">Password</string>
     <string name="signup_birthdateTextHint">Birthdate</string>
+    <string name="signup_screenTitle">SignUp</string>
+    <string name="signup_signUpTextButton">Sign Up</string>
+
+    <!-- Edit Profile Screen -->
+    <string name="editProfile_personalNameTextHint">Fullname</string>
+    <string name="editProfile_emailTextHint">E-mail</string>
+    <string name="editProfile_passwordTextHint">Password</string>
+    <string name="editProfile_birthdateTextHint">Birthdate</string>
+    <string name="editProfile_screenTitle">Edit Profile</string>
+    <string name="editProfile_confirmTextButton">Confirm</string>
 </resources>
