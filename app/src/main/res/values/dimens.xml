@@ -10,9 +10,10 @@
     <dimen name="margin_10">80dp</dimen>
 
     <!-- Font attrs -->
+    <dimen name="fontsize_2">16sp</dimen>
     <dimen name="fontsize_3">24sp</dimen>
-    <dimen name="fontsize_5">36sp</dimen>
-    <dimen name="fontsize_8">56sp</dimen>
+    <dimen name="fontsize_4">36sp</dimen>
+    <dimen name="fontsize_7">56sp</dimen>
 
     <!-- Button attrs -->
     <dimen name="button_radius">25dp</dimen>

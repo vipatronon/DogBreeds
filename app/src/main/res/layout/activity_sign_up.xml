@@ -18,7 +18,7 @@
         android:id="@+id/signupHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/fontsize_5"
+        android:textSize="@dimen/fontsize_4"
         android:layout_marginTop="@dimen/margin_2"
         android:textColor="@color/colorAccent"
 
