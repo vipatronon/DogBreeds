@@ -45,7 +45,7 @@ object AppModules {
         }
 
         factory<BreedDetailsContract.Presenter> { (view: BreedDetailsContract.View) ->
-            BreedDetailsPresenter(view)
+            BreedDetailsPresenter(view, get())
         }
     }
 }

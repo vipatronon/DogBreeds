@@ -1,10 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorPrimary">
 
-    android:background="@color/colorAccent">
+    <com.victor.dogbreeds.ui.common.BackButton
+        android:id="@+id/breedDetailsBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:button_color="@color/colorAccent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/breedDetailsHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/fontsize_4"
+        android:layout_marginTop="@dimen/margin_2"
+        android:textColor="@color/colorAccent"
+
+        android:fontFamily="@font/bigswash_regular"
+
+        tools:text="Labrador"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/breedDetailsPicture"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+
+        android:layout_marginTop="@dimen/margin_1"
+
+        android:scaleType="centerCrop"
+
+        tools:src="@tools:sample/backgrounds/scenic"
+
+        app:layout_constraintTop_toBottomOf="@+id/breedDetailsHeader"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_margin="@dimen/margin_3"
+
+        android:text="@string/breedDetails_loremIpsum"
+
+        app:layout_constraintTop_toBottomOf="@+id/breedDetailsPicture"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

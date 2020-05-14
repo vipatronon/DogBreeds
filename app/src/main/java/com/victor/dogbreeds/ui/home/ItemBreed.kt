@@ -9,9 +9,21 @@ class ItemBreed(
     itemView: View
 ) : RecyclerView.ViewHolder(itemView) {
 
-    fun bind(breedsModel: BreedsModel) {
+    fun bind(breedsModel: BreedsModel, action: ItemBreedCallback) {
         itemView.apply {
-            textLabel.text = breedsModel.breedName
+            if (breedsModel.subBreed.isEmpty()){
+                textLabel.text = breedsModel.masterBreed
+            } else {
+                textLabel.text = "${breedsModel.subBreed} ${breedsModel.masterBreed}"
+            }
+
+            setOnClickListener {
+                action.openBreedDetails(breedsModel)
+            }
         }
+    }
+
+    interface ItemBreedCallback {
+        fun openBreedDetails(breed: BreedsModel)
     }
 }

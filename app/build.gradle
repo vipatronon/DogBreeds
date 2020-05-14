@@ -19,12 +19,12 @@ android {
     buildTypes {
         debug {
             minifyEnabled false
-            buildConfigField "String", "API_URL", "\"https://dog.ceo/api/breeds/\""
+            buildConfigField "String", "API_URL", "\"https://dog.ceo/api/\""
             debuggable true
         }
 
         release {
-            buildConfigField "String", "API_URL", "\"https://dog.ceo/api/breeds/\""
+            buildConfigField "String", "API_URL", "\"https://dog.ceo/api/\""
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -57,4 +57,8 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:4.2.1'
     implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
     implementation "io.reactivex.rxjava2:rxjava:$rxjava_version"
+
+    //Glide
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
 }
