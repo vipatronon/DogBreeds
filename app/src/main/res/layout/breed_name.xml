@@ -9,9 +9,21 @@
     android:paddingBottom="8dp">
 
     <TextView
-        android:id="@+id/textLabel"
+        android:id="@+id/breedNameTextLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/fontsize_2"
+        android:textSize="@dimen/fontsize_3"
         tools:text="Labrador" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/breedNameFavoriteIcon"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+
+        android:tint="@color/colorContrast"
+
+        android:src="@drawable/ic_favorite"
+
+        android:layout_gravity="end"/>
+
 </FrameLayout>

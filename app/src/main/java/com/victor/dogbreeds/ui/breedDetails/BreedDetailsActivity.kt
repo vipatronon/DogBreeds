@@ -6,11 +6,14 @@ import com.bumptech.glide.Glide
 import com.victor.dogbreeds.R
 import com.victor.dogbreeds.business.models.BreedsModel
 import com.victor.dogbreeds.ui.base.BaseActivity
+import com.victor.dogbreeds.ui.home.ItemBreed
 import kotlinx.android.synthetic.main.activity_breed_details.*
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
-class BreedDetailsActivity: BaseActivity(), BreedDetailsContract.View {
+class BreedDetailsActivity:
+    BaseActivity(),
+    BreedDetailsContract.View{
     override val layoutResource: Int = R.layout.activity_breed_details
 
     companion object {

@@ -30,7 +30,7 @@ class BackButton @JvmOverloads constructor(
     private fun handleAttrs(attrs: AttributeSet?) {
         context.obtainStyledAttributes(attrs, R.styleable.BackButton).apply {
             bind(getColor(R.styleable.BackButton_button_color, Color.BLACK))
-        }
+        }.recycle()
     }
 
     private fun bind(color: Int) {

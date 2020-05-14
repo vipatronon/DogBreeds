@@ -4,7 +4,8 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class BreedsModel (
+data class BreedsModel(
     val masterBreed: String,
-    val subBreed: String
-    ): Parcelable
+    val subBreed: String,
+    var isFavorite: Boolean = false
+) : Parcelable

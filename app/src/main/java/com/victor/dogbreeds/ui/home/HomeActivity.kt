@@ -49,4 +49,8 @@ class HomeActivity : BaseActivity(),
     override fun openBreedDetails(breed: BreedsModel) {
         startActivity(BreedDetailsActivity.newInstance(this, breed))
     }
+
+    override fun favoriteBreed(breed: BreedsModel) {
+        breed.isFavorite = !breed.isFavorite
+    }
 }
