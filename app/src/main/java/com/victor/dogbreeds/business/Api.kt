@@ -1,6 +1,6 @@
 package com.victor.dogbreeds.business
 
-import com.victor.dogbreeds.business.models.AllBreedsVO
+import com.victor.dogbreeds.business.dataClasses.AllBreedsVO
 import io.reactivex.Observable
 import retrofit2.http.GET
 

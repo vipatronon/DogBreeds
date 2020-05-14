@@ -2,7 +2,7 @@ package com.victor.dogbreeds.ui.home
 
 import android.util.Log
 import com.victor.dogbreeds.business.ApiRepositoryContract
-import com.victor.dogbreeds.business.models.AllBreedsVO
+import com.victor.dogbreeds.business.models.BreedsModel
 import com.victor.dogbreeds.util.AppUtil
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableObserver
@@ -26,13 +26,13 @@ class HomePresenter(
         apiRepositoryContract.getAllBreeds()
             .compose(AppUtil.getNetworkThread())
             .doOnSubscribe { disposables.add(it) }
-            .subscribe(object : DisposableObserver<AllBreedsVO>(){
+            .subscribe(object : DisposableObserver<List<BreedsModel>>() {
                 override fun onComplete() {
                     Log.d("Home", "Completed")
                 }
 
-                override fun onNext(t: AllBreedsVO) {
-                    Log.d("Home", "Success")
+                override fun onNext(t: List<BreedsModel>) {
+                    view.setBreeds(t)
                 }
 
                 override fun onError(e: Throwable) {
