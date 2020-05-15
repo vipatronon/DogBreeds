@@ -18,16 +18,16 @@
         android:id="@+id/signupHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/fontsize_4"
         android:layout_marginTop="@dimen/margin_2"
-        android:textColor="@color/colorAccent"
-
         android:fontFamily="@font/bigswash_regular"
-
         android:text="@string/signup_screenTitle"
 
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/colorAccent"
+
+        android:textSize="@dimen/fontsize_4"
+
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.victor.dogbreeds.ui.common.TextField
@@ -35,25 +35,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_marginBottom="@dimen/margin_2"
+        android:layout_marginTop="@dimen/margin_10"
 
-        android:layout_marginTop="@dimen/margin_4"
+        android:layout_marginBottom="@dimen/margin_2"
 
         android:inputType="textPersonName"
         app:hintText="@string/signup_personalNameTextHint"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signupHeader" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.victor.dogbreeds.ui.common.TextField
         android:id="@+id/signupEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_marginBottom="@dimen/margin_2"
-
         android:layout_marginTop="@dimen/margin_4"
+
+        android:layout_marginBottom="@dimen/margin_2"
 
         android:inputType="textEmailAddress"
         app:hintText="@string/signup_emailTextHint"
@@ -67,11 +67,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_marginBottom="@dimen/margin_2"
-
         android:layout_marginTop="@dimen/margin_4"
 
-        android:inputType="textEmailAddress"
+        android:layout_marginBottom="@dimen/margin_2"
+
+        android:inputType="textPassword"
         app:hintText="@string/signup_passwordTextHint"
 
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,11 +83,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_marginBottom="@dimen/margin_2"
-
         android:layout_marginTop="@dimen/margin_4"
 
-        android:inputType="textEmailAddress"
+        android:layout_marginBottom="@dimen/margin_2"
+
+        android:inputType="date"
         app:hintText="@string/signup_birthdateTextHint"
 
         app:layout_constraintEnd_toEndOf="parent"
@@ -107,8 +107,8 @@
         android:elevation="@dimen/button_elevation"
 
         android:text="@string/signup_signUpTextButton"
-        android:textColor="@color/colorPrimary"
         android:textAllCaps="false"
+        android:textColor="@color/colorPrimary"
         app:cornerRadius="@dimen/button_radius"
 
         app:layout_constraintBottom_toBottomOf="parent"

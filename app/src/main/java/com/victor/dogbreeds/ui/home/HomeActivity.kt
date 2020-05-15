@@ -21,6 +21,7 @@ class HomeActivity : BaseActivity(),
     companion object {
         fun newInstance(context: Context): Intent {
             return Intent(context, HomeActivity::class.java)
+                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
         }
     }
 

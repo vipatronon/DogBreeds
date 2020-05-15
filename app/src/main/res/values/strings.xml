@@ -1,11 +1,16 @@
 <resources>
     <string name="app_name">Best Doggo</string>
+    <!-- Validators -->
+    <string name="validators_messageIncorrectDateFormat">Date must be in format DD/MM/AAAA</string>
+    <string name="validators_messageLength">Must contain at least 5 chatacters</string>
+    <string name="validators_emailError">Please fill a valid email</string>
 
     <!-- SignIn Screen -->
     <string name="signin_emailTextHint">E-mail</string>
     <string name="signin_passwordTextHint">Password</string>
     <string name="signin_signUpTextButton">Sign Up</string>
     <string name="signin_signInTextButton">Sign In</string>
+    <string name="signin_fillMandatoryFields">Please fill e-mail and password, or SignUp</string>
 
     <!-- SignUp Screen -->
     <string name="signup_personalNameTextHint">Fullname</string>
@@ -14,6 +19,7 @@
     <string name="signup_birthdateTextHint">Birthdate</string>
     <string name="signup_screenTitle">SignUp</string>
     <string name="signup_signUpTextButton">Sign Up</string>
+    <string name="signup_fillMandatoryFields">Please fill all fields correctly</string>
 
     <!-- Edit Profile Screen -->
     <string name="editProfile_personalNameTextHint">Fullname</string>

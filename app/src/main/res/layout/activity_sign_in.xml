@@ -17,14 +17,15 @@
         android:layout_width="wrap_content"
         android:layout_height="100dp"
 
-        android:layout_marginTop="@dimen/margin_6"
         android:src="@drawable/ic_dog_silhouette"
+
+        android:layout_marginBottom="@dimen/margin_2"
 
         android:tint="@color/colorAccent"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/signinAppTitle" />
 
     <TextView
         android:id="@+id/signinAppTitle"
@@ -35,11 +36,13 @@
         android:textSize="@dimen/fontsize_4"
         android:textColor="@color/colorAccent"
 
+        android:layout_marginBottom="@dimen/margin_13"
+
         android:fontFamily="@font/bigswash_regular"
 
-        app:layout_constraintTop_toBottomOf="@+id/signinAppLogo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/signinFieldsGuideline"/>
 
     <com.victor.dogbreeds.ui.common.TextField
         android:id="@+id/signinEmail"
@@ -72,9 +75,8 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/signinSignupButton"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="@dimen/button_width"
-
-        android:layout_height="@dimen/button_height"
+        android:layout_width="@dimen/button_width_outlined"
+        android:layout_height="@dimen/button_height_outlined"
 
         android:layout_marginTop="@dimen/margin_3"
         android:text="@string/signin_signUpTextButton"
@@ -89,7 +91,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/signinSignInButton"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Dialog"
         android:layout_width="@dimen/button_width"
 
         android:layout_height="@dimen/button_height"
