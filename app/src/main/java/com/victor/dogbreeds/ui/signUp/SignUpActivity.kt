@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.view.WindowManager
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 import com.victor.dogbreeds.R
 import com.victor.dogbreeds.ui.base.BaseActivity
 import com.victor.dogbreeds.ui.home.HomeActivity
@@ -17,6 +18,7 @@ import org.koin.core.parameter.parametersOf
 class SignUpActivity : BaseActivity(), SignUpContract.View, IValidators by Validators() {
     override val layoutResource: Int = R.layout.activity_sign_up
     private val presenter: SignUpContract.Presenter by inject { parametersOf(this) }
+    private lateinit var auth: FirebaseAuth
 
     companion object {
         fun newInstance(context: Context): Intent {
@@ -25,12 +27,13 @@ class SignUpActivity : BaseActivity(), SignUpContract.View, IValidators by Valid
     }
 
     override fun start() {
+        auth = FirebaseAuth.getInstance()
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
     }
 
     override fun setEvents() {
         signupSignUpButton.setOnClickListener {
-            presenter.signupUser()
+            signUp()
         }
 
         signupName.textFieldInput.addTextChangedListener(addValidator(this) { textToValidate ->
@@ -48,6 +51,7 @@ class SignUpActivity : BaseActivity(), SignUpContract.View, IValidators by Valid
         signupBirthdate.textFieldInput.addTextChangedListener(addValidator(this) { textToValidate ->
             presenter.onFinishEditBirthdate(textToValidate)
         })
+
         signupBirthdate.textFieldInput.addTextChangedListener(addDateMask(signupBirthdate))
     }
 
@@ -88,8 +92,44 @@ class SignUpActivity : BaseActivity(), SignUpContract.View, IValidators by Valid
         startActivity(HomeActivity.newInstance(this))
     }
 
-    override fun displayWarningToastMessage() {
+    override fun displaySignUpSuccessfullyToast() {
+        Toast.makeText(
+            baseContext,
+            getString(R.string.signup_successfullyMessage),
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+
+    override fun displayFillFieldsToast() {
         Toast.makeText(this, getString(R.string.signup_fillMandatoryFields), Toast.LENGTH_LONG)
             .show()
+    }
+
+    override fun displayCouldNotCreateAccountToast() {
+        Toast.makeText(this, getString(R.string.signup_couldNotCreateAccount), Toast.LENGTH_LONG)
+            .show()
+    }
+
+    private fun signUp() {
+        val email = signupEmail.textFieldInput.text.toString()
+        val password = signupPassword.textFieldInput.text.toString()
+
+        if (email.isEmpty() || password.isEmpty()) {
+            displayFillFieldsToast()
+            return
+        }
+
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    presenter.createUser(
+                        signupName.textFieldInput.text.toString(),
+                        signupEmail.textFieldInput.text.toString(),
+                        signupBirthdate.textFieldInput.text.toString()
+                    )
+                } else {
+                    displayCouldNotCreateAccountToast()
+                }
+            }
     }
 }

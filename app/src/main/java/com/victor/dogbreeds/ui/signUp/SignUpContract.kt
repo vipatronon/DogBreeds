@@ -11,7 +11,9 @@ interface SignUpContract {
         fun showBirthdateInputError()
         fun showBirthdateNormalInput()
         fun openHomeActivity()
-        fun displayWarningToastMessage()
+        fun displaySignUpSuccessfullyToast()
+        fun displayFillFieldsToast()
+        fun displayCouldNotCreateAccountToast()
     }
 
     interface Presenter {
@@ -19,6 +21,6 @@ interface SignUpContract {
         fun onFinishEditEmail(textToValidate: String)
         fun onFinishEditPassword(textToValidate: String)
         fun onFinishEditBirthdate(textToValidate: String)
-        fun signupUser()
+        fun createUser(fullName: String, email: String, birthdate: String)
     }
 }

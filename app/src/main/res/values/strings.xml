@@ -11,6 +11,7 @@
     <string name="signin_signUpTextButton">Sign Up</string>
     <string name="signin_signInTextButton">Sign In</string>
     <string name="signin_fillMandatoryFields">Please fill e-mail and password, or SignUp</string>
+    <string name="signin_signInErrorMessage">Invalid credendials</string>
 
     <!-- SignUp Screen -->
     <string name="signup_personalNameTextHint">Fullname</string>
@@ -20,6 +21,8 @@
     <string name="signup_screenTitle">SignUp</string>
     <string name="signup_signUpTextButton">Sign Up</string>
     <string name="signup_fillMandatoryFields">Please fill all fields correctly</string>
+    <string name="signup_couldNotCreateAccount">Could not create account right now. Try again later</string>
+    <string name="signup_successfullyMessage">Signed up successfully</string>
 
     <!-- Edit Profile Screen -->
     <string name="editProfile_personalNameTextHint">Fullname</string>

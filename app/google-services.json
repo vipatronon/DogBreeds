@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "621748392968",
+    "firebase_url": "https://dogbreeds-9e843.firebaseio.com",
+    "project_id": "dogbreeds-9e843",
+    "storage_bucket": "dogbreeds-9e843.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:621748392968:android:cf4c44cee6810fe9912dbd",
+        "android_client_info": {
+          "package_name": "com.victor.dogbreeds"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "621748392968-12vaasshvupv7m6js1fpsqbdcl2gbnt4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzc4pLiJvs2QTxWVKJ3eoLAx_-tEWaceo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "621748392968-12vaasshvupv7m6js1fpsqbdcl2gbnt4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

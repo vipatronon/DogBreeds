@@ -1,5 +1,6 @@
 package com.victor.dogbreeds.ui.signUp
 
+import com.google.firebase.firestore.FirebaseFirestore
 import com.victor.dogbreeds.util.Validators
 import com.victor.dogbreeds.util.base.IValidators
 
@@ -12,6 +13,8 @@ class SignUpPresenter(
     private var validEmail = false
     private var validPassword = false
     private var validBirthdate = false
+
+    private val docRef = FirebaseFirestore.getInstance().collection("users")
 
     override fun onFinishEditFullname(textToValidate: String) {
         validFullname = validateTextLength(textToValidate, 5)
@@ -53,15 +56,26 @@ class SignUpPresenter(
         }
     }
 
-    override fun signupUser() {
+    override fun createUser(fullName: String, email: String, birthdate: String){
         if (validFullname &&
             validEmail &&
             validPassword &&
             validBirthdate
         ) {
-            view.openHomeActivity()
+            val dataToSave = hashMapOf<String, Any>()
+
+            dataToSave["fullname"] = fullName
+            dataToSave["email"] = email
+            dataToSave["birthdate"] = birthdate
+
+            docRef.add(dataToSave).addOnSuccessListener {
+                view.displaySignUpSuccessfullyToast()
+                view.openHomeActivity()
+            }.addOnFailureListener {
+                view.displayCouldNotCreateAccountToast()
+            }
         } else {
-            view.displayWarningToastMessage()
+            view.displayFillFieldsToast()
         }
     }
 }
