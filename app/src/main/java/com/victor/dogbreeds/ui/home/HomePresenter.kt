@@ -56,9 +56,9 @@ class HomePresenter(
 
                             t.forEach {
                                 if (it.subBreed.isNotEmpty()) {
-                                    it.displayName = "${it.subBreed} ${it.masterBreed}"
+                                    it.displayName = "${it.subBreed.capitalize()} ${it.masterBreed.capitalize()}"
                                 } else {
-                                    it.displayName = it.masterBreed
+                                    it.displayName = it.masterBreed.capitalize()
                                 }
                             }
 
