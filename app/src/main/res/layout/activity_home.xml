@@ -20,7 +20,7 @@
         android:layout_width="@dimen/homeScreen_applogo"
         android:layout_height="@dimen/homeScreen_applogo"
 
-        android:layout_marginStart="@dimen/margin_1"
+        android:layout_marginStart="@dimen/margin_2"
 
         android:src="@drawable/ic_dog_silhouette"
 
@@ -54,7 +54,7 @@
         android:layout_width="@dimen/homeScreen_profilePicture"
         android:layout_height="@dimen/homeScreen_profilePicture"
 
-        android:layout_marginEnd="@dimen/margin_1"
+        android:layout_marginEnd="@dimen/margin_2"
 
         android:src="@drawable/ic_profile_picture"
         app:layout_constraintBottom_toBottomOf="@+id/homeLabel"
@@ -65,7 +65,9 @@
         android:id="@+id/homeBreedsList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_2"
+        android:layout_marginStart="@dimen/margin_1"
+        android:layout_marginEnd="@dimen/margin_1"
+        android:paddingBottom="@dimen/margin_1"
         android:clipToPadding="false"
 
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
