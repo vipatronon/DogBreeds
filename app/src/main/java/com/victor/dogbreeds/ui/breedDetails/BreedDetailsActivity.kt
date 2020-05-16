@@ -3,6 +3,7 @@ package com.victor.dogbreeds.ui.breedDetails
 import android.content.Context
 import android.content.Intent
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.victor.dogbreeds.R
 import com.victor.dogbreeds.business.models.BreedsModel
 import com.victor.dogbreeds.ui.base.BaseActivity
@@ -52,7 +53,8 @@ class BreedDetailsActivity:
         Glide
             .with(this)
             .load(url)
-            .fitCenter()
+            .centerCrop()
+            .transition(DrawableTransitionOptions.withCrossFade())
             .into(breedDetailsPicture)
     }
 }

@@ -32,9 +32,23 @@
         tools:text="Labrador" />
 
     <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/breedDetailsPlaceholder"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+
+        android:src="@drawable/ic_image_placeholder"
+
+        android:tint="@color/colorAccent"
+
+        app:layout_constraintBottom_toBottomOf="@+id/breedDetailsPicture"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/breedDetailsPicture" />
+
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/breedDetailsPicture"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="400dp"
 
         android:layout_marginTop="@dimen/margin_1"
 
