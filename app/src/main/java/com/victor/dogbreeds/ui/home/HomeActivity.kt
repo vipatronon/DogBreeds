@@ -65,21 +65,15 @@ class HomeActivity : BaseActivity(),
         breed.isFavorite = !breed.isFavorite
 
         val dataToSave = hashMapOf<String, Any>()
-        dataToSave[FirestoreRefs.breed] = breed
+        dataToSave[FirestoreRefs.favoriteBreed] = breed.isFavorite
+        dataToSave[FirestoreRefs.masterBreed] = breed.masterBreed
+        dataToSave[FirestoreRefs.subBreed] = breed.subBreed
 
         users
             .document(userModel.id)
             .collection(FirestoreRefs.favoritesCollection)
-            .add(dataToSave)
-            .addOnSuccessListener {
-                Toast.makeText(this, getString(R.string.home_addedFavorites), Toast.LENGTH_SHORT)
-                    .show()
-            }
-            .addOnFailureListener {
-                breed.isFavorite = !breed.isFavorite
-                Toast.makeText(this, getString(R.string.home_errorAddFavorites), Toast.LENGTH_SHORT)
-                    .show()
-            }
+            .document("${breed.masterBreed}-${breed.subBreed}")
+            .set(dataToSave)
     }
 
     private fun getPlayerId() {
@@ -101,7 +95,7 @@ class HomeActivity : BaseActivity(),
                                 email = query.documents[0][FirestoreRefs.userEmail].toString()
                             )
 
-                            presenter.getAllBreeds()
+                            presenter.getAllBreeds(userModel.id)
                         }
                     }.addOnFailureListener {
                         showErrorToastMessage()

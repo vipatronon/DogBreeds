@@ -7,6 +7,8 @@ class FirestoreRefs {
         val userEmail = "email"
         val userBirthdate = "birthdate"
         val favoritesCollection = "favorite_breeds"
-        val breed = "breed"
+        val favoriteBreed = "favorite"
+        val masterBreed = "masterBreed"
+        val subBreed = "subBreed"
     }
 }
