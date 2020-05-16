@@ -45,11 +45,7 @@ class BreedDetailsActivity:
     }
 
     override fun setScreenTitle(breed: BreedsModel) {
-        if (breed.subBreed.isEmpty()){
-            breedDetailsHeader.text = breed.masterBreed
-        } else {
-            breedDetailsHeader.text = "${breed.subBreed} ${breed.masterBreed}"
-        }
+        breedDetailsHeader.text = breed.displayName
     }
 
     override fun loadImage(url: String) {

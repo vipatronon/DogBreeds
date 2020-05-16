@@ -7,5 +7,6 @@ import kotlinx.android.parcel.Parcelize
 data class BreedsModel(
     val masterBreed: String,
     val subBreed: String,
-    var isFavorite: Boolean = false
+    var isFavorite: Boolean = false,
+    var displayName: String = ""
 ) : Parcelable

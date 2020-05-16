@@ -12,11 +12,7 @@ class ItemBreed(
 
     fun bind(breedsModel: BreedsModel, action: ItemBreedCallback) {
         itemView.apply {
-            if (breedsModel.subBreed.isEmpty()){
-                breedNameTextLabel.text = breedsModel.masterBreed
-            } else {
-                breedNameTextLabel.text = "${breedsModel.subBreed} ${breedsModel.masterBreed}"
-            }
+            breedNameTextLabel.text = breedsModel.displayName
 
             swapFavoriteSpriteResource(breedsModel.isFavorite)
 

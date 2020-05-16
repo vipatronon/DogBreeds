@@ -54,7 +54,17 @@ class HomePresenter(
                                 }
                             }
 
-                            view.setBreeds(t)
+                            t.forEach {
+                                if (it.subBreed.isNotEmpty()) {
+                                    it.displayName = "${it.subBreed} ${it.masterBreed}"
+                                } else {
+                                    it.displayName = it.masterBreed
+                                }
+                            }
+
+                            view.setBreeds(t.sortedBy {
+                                it.displayName
+                            })
                         }
 
                         override fun onError(e: Throwable) {

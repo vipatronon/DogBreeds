@@ -3,6 +3,7 @@ package com.victor.dogbreeds.ui.home
 import android.content.Context
 import android.content.Intent
 import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -52,8 +53,22 @@ class HomeActivity : BaseActivity(),
 
     override fun setBreeds(breeds: List<BreedsModel>) {
         homeBreedsList.apply {
-            adapter = BreedsAdapter(breeds, this@HomeActivity)
+
+            val breedsAdapter = BreedsAdapter(breeds, this@HomeActivity)
+
+            adapter = breedsAdapter
             layoutManager = LinearLayoutManager(context)
+
+            homeBreedsSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    return false
+                }
+
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    breedsAdapter.filter.filter(newText)
+                    return false
+                }
+            })
         }
     }
 

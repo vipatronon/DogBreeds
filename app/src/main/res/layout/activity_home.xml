@@ -28,23 +28,26 @@
         app:layout_constraintStart_toStartOf="@+id/homeLabel"
         app:layout_constraintTop_toTopOf="@+id/homeLabel" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/homeSearchButton"
-        android:layout_width="wrap_content"
-
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/homeBreedsSearch"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_6"
+        android:layout_marginEnd="@dimen/margin_6"
+        android:background="@color/colorPrimary"
+        android:backgroundTint="@color/colorAccent"
 
-        android:fontFamily="@font/bigswash_regular"
+        android:textCursorDrawable="@null"
 
-        android:text="Search a breed"
+        app:iconifiedByDefault="false"
 
-        android:textColor="@color/colorFont"
-
-        android:textSize="@dimen/fontsize_3"
         app:layout_constraintBottom_toBottomOf="@+id/homeLabel"
-        app:layout_constraintEnd_toEndOf="@+id/homeLabel"
-        app:layout_constraintStart_toStartOf="@id/homeLabel"
-        app:layout_constraintTop_toTopOf="@+id/homeLabel" />
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/homeLabel"
+        app:queryBackground="@null"
+        app:queryHint="@string/home_searchQueryHint" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/homeProfileButton"
@@ -69,7 +72,7 @@
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homeLabel"/>
+        app:layout_constraintTop_toBottomOf="@+id/homeLabel" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
