@@ -60,16 +60,4 @@
         app:layout_constraintTop_toBottomOf="@+id/breedDetailsHeader"
         tools:src="@tools:sample/backgrounds/scenic" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_margin="@dimen/margin_3"
-
-        android:text="@string/breedDetails_loremIpsum"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/breedDetailsPicture" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
