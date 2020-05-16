@@ -31,6 +31,12 @@
     <string name="editProfile_birthdateTextHint">Birthdate</string>
     <string name="editProfile_screenTitle">Edit Profile</string>
     <string name="editProfile_confirmTextButton">Confirm</string>
+    <string name="editProfile_errorUpdatingInfo">Could not update account info</string>
+    <string name="editProfile_errorRetrievingInfo">Error retrieving account information</string>
+    <string name="editProfile_successUpdatingInfo">Account info updated successfully</string>
+    <string name="editProfile_dialogTitle">Logout required</string>
+    <string name="editProfile_emailChangesEffective">To make the email change effective, a logout is required</string>
+    <string name="editProfile_logoutFirst">In order to effectively change your e-mail, you must logout first</string>
 
     <!-- Breed Details Screen -->
     <string name="breedDetails_loremIpsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>

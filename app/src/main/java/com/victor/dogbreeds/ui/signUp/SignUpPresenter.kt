@@ -1,6 +1,7 @@
 package com.victor.dogbreeds.ui.signUp
 
 import com.google.firebase.firestore.FirebaseFirestore
+import com.victor.dogbreeds.business.FirestoreRefs
 import com.victor.dogbreeds.util.Validators
 import com.victor.dogbreeds.util.base.IValidators
 
@@ -14,7 +15,7 @@ class SignUpPresenter(
     private var validPassword = false
     private var validBirthdate = false
 
-    private val docRef = FirebaseFirestore.getInstance().collection("users")
+    private val docRef = FirebaseFirestore.getInstance().collection(FirestoreRefs.usersCollection)
 
     override fun onFinishEditFullname(textToValidate: String) {
         validFullname = validateTextLength(textToValidate, 5)
@@ -56,7 +57,7 @@ class SignUpPresenter(
         }
     }
 
-    override fun createUser(fullName: String, email: String, birthdate: String){
+    override fun createUser(fullName: String, email: String, birthdate: String) {
         if (validFullname &&
             validEmail &&
             validPassword &&
@@ -64,9 +65,9 @@ class SignUpPresenter(
         ) {
             val dataToSave = hashMapOf<String, Any>()
 
-            dataToSave["fullname"] = fullName
-            dataToSave["email"] = email
-            dataToSave["birthdate"] = birthdate
+            dataToSave[FirestoreRefs.userFullname] = fullName
+            dataToSave[FirestoreRefs.userEmail] = email
+            dataToSave[FirestoreRefs.userBirthdate] = birthdate
 
             docRef.add(dataToSave).addOnSuccessListener {
                 view.displaySignUpSuccessfullyToast()
