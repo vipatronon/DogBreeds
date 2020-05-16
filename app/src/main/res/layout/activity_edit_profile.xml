@@ -87,7 +87,7 @@
 
         android:layout_marginTop="@dimen/margin_4"
 
-        android:inputType="textEmailAddress"
+        android:inputType="textPassword"
         app:hintText="@string/editProfile_passwordTextHint"
 
         app:layout_constraintEnd_toEndOf="parent"
@@ -103,7 +103,7 @@
 
         android:layout_marginTop="@dimen/margin_4"
 
-        android:inputType="textEmailAddress"
+        android:inputType="date"
         app:hintText="@string/editProfile_birthdateTextHint"
 
         app:layout_constraintEnd_toEndOf="parent"
