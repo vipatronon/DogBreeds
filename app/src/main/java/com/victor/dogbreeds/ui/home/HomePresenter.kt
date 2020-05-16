@@ -4,7 +4,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.victor.dogbreeds.business.ApiRepositoryContract
 import com.victor.dogbreeds.business.FirestoreRefs
 import com.victor.dogbreeds.business.models.BreedsModel
-import com.victor.dogbreeds.business.models.FavoriteBreed
+import com.victor.dogbreeds.business.models.firestore.FavoriteBreed
 import com.victor.dogbreeds.util.AppUtil
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableObserver

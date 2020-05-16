@@ -1,4 +1,4 @@
-package com.victor.dogbreeds.business.models
+package com.victor.dogbreeds.business.models.firestore
 
 data class FavoriteBreed(
     val masterBreed: String? = null,

@@ -95,20 +95,19 @@ class HomeActivity : BaseActivity(),
         auth.currentUser?.let { user ->
             user.email?.let { email ->
                 users.whereEqualTo(FirestoreRefs.userEmail, email)
-
-                users.get()
+                    .get()
                     .addOnSuccessListener { query ->
                         if (query.isEmpty) {
                             showErrorToastMessage()
                         } else {
-                            if (query.documents.size > 1) showErrorToastMessage()
+                            if (query.documents.size > 1){
+                                showErrorToastMessage()
+                                return@addOnSuccessListener
+                            }
 
-                            userModel = UserModel(
-                                id = query.documents[0].id,
-                                fullname = query.documents[0][FirestoreRefs.userFullname].toString(),
-                                birthdate = query.documents[0][FirestoreRefs.userBirthdate].toString(),
-                                email = query.documents[0][FirestoreRefs.userEmail].toString()
-                            )
+                            val firestoreModel = query.documents[0].toObject(com.victor.dogbreeds.business.models.firestore.UserModel::class.java)!!
+
+                            userModel = UserModel(fullname = firestoreModel.fullname!!, email = firestoreModel.email!!, birthdate = firestoreModel.birthdate!!, id = query.documents[0].id)
 
                             presenter.getAllBreeds(userModel.id)
                         }
