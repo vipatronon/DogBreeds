@@ -17,6 +17,7 @@ interface EditProfileContract {
         fun displayUpdatedSuccessfullyToast()
         fun requestLogout()
         fun requestLogoutToChangeUserName()
+        fun displayCorrectInfosToast()
     }
 
     interface Presenter {

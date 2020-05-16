@@ -36,6 +36,7 @@
     <string name="editProfile_dialogTitle">Logout required</string>
     <string name="editProfile_emailChangesEffective">To make the email change effective, a logout is required</string>
     <string name="editProfile_logoutFirst">In order to effectively change your e-mail, you must logout first</string>
+    <string name="editProfile_reviewInfo">Please review provided info</string>
 
     <!-- Home Screen -->
     <string name="home_errorRetrievingInfo">Error retrieving account information</string>

@@ -15,7 +15,7 @@ class EditProfilePresenter(
 
     private var validFullname = false
     private var validEmail = false
-    private var validPassword = false
+    private var validPassword = true
     private var validBirthdate = false
     private val users = FirebaseFirestore.getInstance().collection(FirestoreRefs.usersCollection)
 
@@ -50,6 +50,7 @@ class EditProfilePresenter(
     }
 
     override fun onFinishEditPassword(textToValidate: String) {
+        if (textToValidate.isEmpty()) return
         validPassword = validateTextLength(textToValidate, 5)
 
         if (validPassword) {
@@ -70,6 +71,16 @@ class EditProfilePresenter(
     }
 
     override fun updateUser(fullName: String, email: String, password: String, birthdate: String) {
+
+        onFinishEditFullname(fullName)
+        onFinishEditPassword(password)
+        onFinishEditEmail(email)
+        onFinishEditBirthdate(birthdate)
+
+        if (!validEmail || !validPassword || !validBirthdate || !validFullname){
+            view.displayCorrectInfosToast()
+            return
+        }
 
         updateFullname(fullName) {
             updatebirthdate(birthdate) {

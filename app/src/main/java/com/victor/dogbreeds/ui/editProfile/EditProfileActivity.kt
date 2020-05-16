@@ -145,6 +145,10 @@ class EditProfileActivity : BaseActivity(), EditProfileContract.View, IValidator
         builder.show()
     }
 
+    override fun displayCorrectInfosToast() {
+        Toast.makeText(this, getString(R.string.editProfile_reviewInfo), Toast.LENGTH_SHORT).show()
+    }
+
     private fun fillFields(userModel: UserModel) {
         editProfileName.textFieldInput.setText(userModel.fullname)
         editProfileEmail.textFieldInput.setText(userModel.email)
