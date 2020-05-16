@@ -37,7 +37,6 @@ class BreedDetailsPresenter(
             .doOnSubscribe { disposables.add(it) }
             .subscribe(object : DisposableObserver<BreedImageModel>() {
                 override fun onComplete() {
-                    Log.d("Details", "Completed")
                 }
 
                 override fun onNext(t: BreedImageModel) {
@@ -45,7 +44,6 @@ class BreedDetailsPresenter(
                 }
 
                 override fun onError(e: Throwable) {
-                    Log.d("Details", "Error")
                 }
             })
     }

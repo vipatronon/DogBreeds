@@ -28,7 +28,6 @@ class HomePresenter(
             .doOnSubscribe { disposables.add(it) }
             .subscribe(object : DisposableObserver<List<BreedsModel>>() {
                 override fun onComplete() {
-                    Log.d("Home", "Completed")
                 }
 
                 override fun onNext(t: List<BreedsModel>) {
@@ -36,7 +35,6 @@ class HomePresenter(
                 }
 
                 override fun onError(e: Throwable) {
-                    Log.d("Home", "Error")
                 }
             })
     }
