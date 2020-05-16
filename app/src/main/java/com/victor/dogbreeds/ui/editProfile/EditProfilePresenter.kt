@@ -4,6 +4,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.victor.dogbreeds.business.FirestoreRefs
+import com.victor.dogbreeds.business.models.UserModel
 import com.victor.dogbreeds.util.Validators
 import com.victor.dogbreeds.util.base.IValidators
 
@@ -16,18 +17,16 @@ class EditProfilePresenter(
     private var validEmail = false
     private var validPassword = false
     private var validBirthdate = false
-
-    private lateinit var userId: String
-    private lateinit var fullname: String
-    private lateinit var email: String
-    private lateinit var birthdate: String
-    private lateinit var auth: FirebaseAuth
-
     private val users = FirebaseFirestore.getInstance().collection(FirestoreRefs.usersCollection)
+
+    private lateinit var auth: FirebaseAuth
+    private lateinit var userModel: UserModel
     private lateinit var docRef: DocumentReference
 
-    override fun start() {
+    override fun start(userModel: UserModel) {
         auth = FirebaseAuth.getInstance()
+        this.userModel = userModel
+        docRef = users.document(userModel.id)
     }
 
     override fun onFinishEditFullname(textToValidate: String) {
@@ -75,7 +74,7 @@ class EditProfilePresenter(
         updateFullname(fullName) {
             updatebirthdate(birthdate) {
                 updatePassword(password) {
-                    if (this.email != email) {
+                    if (userModel.email != email) {
                         docRef.update(FirestoreRefs.userEmail, email)
                             .addOnCompleteListener { updateTask ->
                                 if (updateTask.isSuccessful) {
@@ -100,19 +99,6 @@ class EditProfilePresenter(
         }
     }
 
-    override fun registerUserInfo(
-        userId: String,
-        fullname: String,
-        email: String,
-        birthdate: String
-    ) {
-        this.userId = userId
-        this.fullname = fullname
-        this.email = email
-        this.birthdate = birthdate
-        docRef = users.document(userId)
-    }
-
     private fun updatePassword(password: String, callback: () -> Unit) {
         if (password.isNotEmpty()) {
             auth.currentUser?.updatePassword(password)
@@ -125,7 +111,7 @@ class EditProfilePresenter(
     }
 
     private fun updateFullname(fullname: String, callback: () -> Unit) {
-        if (this.fullname != fullname) {
+        if (userModel.fullname != fullname) {
             docRef.update(FirestoreRefs.userFullname, fullname)
                 .addOnSuccessListener {
                     callback()
@@ -136,7 +122,7 @@ class EditProfilePresenter(
     }
 
     private fun updatebirthdate(birthdate: String, callback: () -> Unit) {
-        if (this.birthdate != birthdate) {
+        if (userModel.birthdate != birthdate) {
             docRef.update(FirestoreRefs.userBirthdate, birthdate)
                 .addOnSuccessListener {
                     callback()

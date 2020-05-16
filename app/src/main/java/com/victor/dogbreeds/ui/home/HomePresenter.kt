@@ -1,6 +1,5 @@
 package com.victor.dogbreeds.ui.home
 
-import android.util.Log
 import com.victor.dogbreeds.business.ApiRepositoryContract
 import com.victor.dogbreeds.business.models.BreedsModel
 import com.victor.dogbreeds.util.AppUtil
@@ -14,15 +13,11 @@ class HomePresenter(
 
     private val disposables = CompositeDisposable()
 
-    override fun start() {
-        getAllBreeds()
-    }
-
     override fun destroy() {
         disposables.clear()
     }
 
-    private fun getAllBreeds() {
+    override fun getAllBreeds() {
         apiRepositoryContract.getAllBreeds()
             .compose(AppUtil.getNetworkThread())
             .doOnSubscribe { disposables.add(it) }

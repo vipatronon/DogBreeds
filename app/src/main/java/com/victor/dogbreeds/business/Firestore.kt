@@ -6,5 +6,7 @@ class FirestoreRefs {
         val userFullname = "fullname"
         val userEmail = "email"
         val userBirthdate = "birthdate"
+        val favoritesCollection = "favorite_breeds"
+        val breed = "breed"
     }
 }

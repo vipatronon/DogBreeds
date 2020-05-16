@@ -6,10 +6,8 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.DocumentSnapshot
-import com.google.firebase.firestore.FirebaseFirestore
 import com.victor.dogbreeds.R
-import com.victor.dogbreeds.business.FirestoreRefs
+import com.victor.dogbreeds.business.models.UserModel
 import com.victor.dogbreeds.ui.base.BaseActivity
 import com.victor.dogbreeds.ui.home.HomeActivity
 import com.victor.dogbreeds.ui.signIn.SignInActivity
@@ -24,22 +22,24 @@ class EditProfileActivity : BaseActivity(), EditProfileContract.View, IValidator
     override val layoutResource: Int = R.layout.activity_edit_profile
 
     companion object {
-        fun newInstance(context: Context): Intent {
+        val USER_MODEL = "userModel"
+
+        fun newInstance(context: Context, userModel: UserModel): Intent {
             return Intent(context, EditProfileActivity::class.java)
+                .putExtra(USER_MODEL, userModel)
         }
     }
 
-    private val docRef = FirebaseFirestore.getInstance().collection(FirestoreRefs.usersCollection)
     private val presenter: EditProfileContract.Presenter by inject { parametersOf(this) }
     private lateinit var auth: FirebaseAuth
 
     override fun start() {
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
-
         auth = FirebaseAuth.getInstance()
-        presenter.start()
 
-        getUserInfo()
+        val userModel = intent.getParcelableExtra(USER_MODEL) as UserModel
+        presenter.start(userModel)
+        fillFields(userModel)
     }
 
     override fun setEvents() {
@@ -145,46 +145,10 @@ class EditProfileActivity : BaseActivity(), EditProfileContract.View, IValidator
         builder.show()
     }
 
-    private fun getUserInfo() {
-        auth.currentUser?.let { user ->
-            user.email?.let { email ->
-                docRef.whereEqualTo(FirestoreRefs.userEmail, email)
-
-                docRef.get()
-                    .addOnSuccessListener { query ->
-                        if (query.isEmpty) {
-                            showErrorToastMessageAndFinish()
-                        } else {
-                            if (query.documents.size > 1) showErrorToastMessageAndFinish()
-
-                            fillFields(query.documents[0])
-                        }
-                    }.addOnFailureListener {
-                        showErrorToastMessageAndFinish()
-                    }
-            }
-        }
-    }
-
-    private fun showErrorToastMessageAndFinish() {
-        Toast.makeText(
-            this,
-            getString(R.string.editProfile_errorRetrievingInfo),
-            Toast.LENGTH_SHORT
-        ).show()
-        finish()
-    }
-
-    private fun fillFields(document: DocumentSnapshot) {
-        val fullname = document[FirestoreRefs.userFullname].toString()
-        val email = document[FirestoreRefs.userEmail].toString()
-        val birthdate = document[FirestoreRefs.userBirthdate].toString()
-
-        presenter.registerUserInfo(document.id, fullname, email, birthdate)
-
-        editProfileName.textFieldInput.setText(fullname)
-        editProfileEmail.textFieldInput.setText(email)
-        editProfileBirthdate.textFieldInput.setText(birthdate)
+    private fun fillFields(userModel: UserModel) {
+        editProfileName.textFieldInput.setText(userModel.fullname)
+        editProfileEmail.textFieldInput.setText(userModel.email)
+        editProfileBirthdate.textFieldInput.setText(userModel.birthdate)
     }
 
     private fun signOut() {

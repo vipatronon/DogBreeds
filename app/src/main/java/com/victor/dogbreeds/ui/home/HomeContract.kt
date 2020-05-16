@@ -9,7 +9,7 @@ interface HomeContract {
     }
 
     interface Presenter {
-        fun start()
         fun destroy()
+        fun getAllBreeds()
     }
 }
