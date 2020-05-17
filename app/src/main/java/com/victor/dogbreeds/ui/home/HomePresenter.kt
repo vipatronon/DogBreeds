@@ -1,10 +1,12 @@
 package com.victor.dogbreeds.ui.home
 
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.victor.dogbreeds.business.ApiRepositoryContract
 import com.victor.dogbreeds.business.AppRepositoryContract
 import com.victor.dogbreeds.business.FirestoreRefs
 import com.victor.dogbreeds.business.models.BreedsModel
+import com.victor.dogbreeds.business.models.UserModel
 import com.victor.dogbreeds.business.models.firestore.FavoriteBreed
 import com.victor.dogbreeds.entities.Breed
 import com.victor.dogbreeds.util.AppUtil
@@ -25,6 +27,7 @@ class HomePresenter(
     private val disposables = CompositeDisposable()
     private val users = FirebaseFirestore.getInstance().collection(FirestoreRefs.usersCollection)
     private lateinit var connectionType: ConnectionType
+    private lateinit var auth: FirebaseAuth
 
     override fun destroy() {
         disposables.clear()
@@ -32,6 +35,8 @@ class HomePresenter(
 
     override fun start(connectionType: ConnectionType) {
         this.connectionType = connectionType
+        auth = FirebaseAuth.getInstance()
+        getPlayerId()
     }
 
     override fun favoriteBreed(id: String, breed: BreedsModel) {
@@ -153,6 +158,41 @@ class HomePresenter(
                         }
                     })
             }
+    }
+
+    private fun getPlayerId() {
+        auth.currentUser?.let { user ->
+            user.email?.let { email ->
+                users.whereEqualTo(FirestoreRefs.userEmail, email)
+                    .get()
+                    .addOnSuccessListener { query ->
+                        if (query.isEmpty) {
+                            view.showErrorToastMessage()
+                        } else {
+                            if (query.documents.size > 1) {
+                                view.showErrorToastMessage()
+                                return@addOnSuccessListener
+                            }
+
+                            val firestoreModel =
+                                query.documents[0].toObject(com.victor.dogbreeds.business.models.firestore.UserModel::class.java)!!
+
+                            val userModel = UserModel(
+                                fullname = firestoreModel.fullname!!,
+                                email = firestoreModel.email!!,
+                                birthdate = firestoreModel.birthdate!!,
+                                id = query.documents[0].id
+                            )
+
+                            view.setUserModel(userModel)
+
+                            getAllBreeds(userModel.id)
+                        }
+                    }.addOnFailureListener {
+                        view.showErrorToastMessage()
+                    }
+            }
+        }
     }
 
     private fun updateRoom(breeds: List<BreedsModel>) {

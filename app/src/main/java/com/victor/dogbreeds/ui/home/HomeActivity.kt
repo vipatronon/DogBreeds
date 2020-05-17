@@ -5,16 +5,12 @@ import android.content.Intent
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
 import com.victor.dogbreeds.R
-import com.victor.dogbreeds.business.FirestoreRefs
 import com.victor.dogbreeds.business.models.BreedsModel
 import com.victor.dogbreeds.business.models.UserModel
 import com.victor.dogbreeds.ui.base.BaseActivity
 import com.victor.dogbreeds.ui.breedDetails.BreedDetailsActivity
 import com.victor.dogbreeds.ui.editProfile.EditProfileActivity
-import com.victor.dogbreeds.util.ConnectionType
 import com.victor.dogbreeds.util.getConnectionType
 import kotlinx.android.synthetic.main.activity_home.*
 import org.koin.android.ext.android.inject
@@ -25,11 +21,8 @@ class HomeActivity : BaseActivity(),
     ItemBreed.ItemBreedCallback {
     override val layoutResource: Int = R.layout.activity_home
     private val presenter: HomeContract.Presenter by inject { parametersOf(this) }
-    private val users = FirebaseFirestore.getInstance().collection(FirestoreRefs.usersCollection)
 
-    private lateinit var auth: FirebaseAuth
     private lateinit var userModel: UserModel
-    private lateinit var connectionType: ConnectionType
 
     companion object {
         fun newInstance(context: Context): Intent {
@@ -39,11 +32,7 @@ class HomeActivity : BaseActivity(),
     }
 
     override fun start() {
-        connectionType = getConnectionType(this)
-        auth = FirebaseAuth.getInstance()
-
-        presenter.start(connectionType)
-        getPlayerId()
+        presenter.start(getConnectionType(this))
     }
 
     override fun onDestroy() {
@@ -86,44 +75,15 @@ class HomeActivity : BaseActivity(),
         presenter.favoriteBreed(userModel.id, breed)
     }
 
-    private fun getPlayerId() {
-        auth.currentUser?.let { user ->
-            user.email?.let { email ->
-                users.whereEqualTo(FirestoreRefs.userEmail, email)
-                    .get()
-                    .addOnSuccessListener { query ->
-                        if (query.isEmpty) {
-                            showErrorToastMessage()
-                        } else {
-                            if (query.documents.size > 1) {
-                                showErrorToastMessage()
-                                return@addOnSuccessListener
-                            }
-
-                            val firestoreModel =
-                                query.documents[0].toObject(com.victor.dogbreeds.business.models.firestore.UserModel::class.java)!!
-
-                            userModel = UserModel(
-                                fullname = firestoreModel.fullname!!,
-                                email = firestoreModel.email!!,
-                                birthdate = firestoreModel.birthdate!!,
-                                id = query.documents[0].id
-                            )
-
-                            presenter.getAllBreeds(userModel.id)
-                        }
-                    }.addOnFailureListener {
-                        showErrorToastMessage()
-                    }
-            }
-        }
-    }
-
-    private fun showErrorToastMessage() {
+    override fun showErrorToastMessage() {
         Toast.makeText(
             this,
             getString(R.string.home_errorRetrievingInfo),
             Toast.LENGTH_SHORT
         ).show()
+    }
+
+    override fun setUserModel(userModel: UserModel) {
+        this.userModel = userModel
     }
 }
