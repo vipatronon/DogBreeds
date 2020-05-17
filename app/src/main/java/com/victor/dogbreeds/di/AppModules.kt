@@ -37,7 +37,7 @@ object AppModules {
         }
 
         factory<HomeContract.Presenter> { (view: HomeContract.View) ->
-            HomePresenter(view, get())
+            HomePresenter(view, get(), get())
         }
 
         factory<EditProfileContract.Presenter> { (view: EditProfileContract.View) ->

@@ -1,6 +1,7 @@
 package com.victor.dogbreeds.ui.home
 
 import com.victor.dogbreeds.business.models.BreedsModel
+import com.victor.dogbreeds.util.ConnectionType
 
 interface HomeContract {
     interface View {
@@ -10,5 +11,6 @@ interface HomeContract {
     interface Presenter {
         fun destroy()
         fun getAllBreeds(userId: String)
+        fun start(connectionType: ConnectionType)
     }
 }

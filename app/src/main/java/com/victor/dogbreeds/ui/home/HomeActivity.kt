@@ -14,6 +14,7 @@ import com.victor.dogbreeds.business.models.UserModel
 import com.victor.dogbreeds.ui.base.BaseActivity
 import com.victor.dogbreeds.ui.breedDetails.BreedDetailsActivity
 import com.victor.dogbreeds.ui.editProfile.EditProfileActivity
+import com.victor.dogbreeds.util.getConnectionType
 import kotlinx.android.synthetic.main.activity_home.*
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
@@ -37,6 +38,8 @@ class HomeActivity : BaseActivity(),
 
     override fun start() {
         auth = FirebaseAuth.getInstance()
+
+        presenter.start(getConnectionType(this))
         getPlayerId()
     }
 
@@ -100,14 +103,20 @@ class HomeActivity : BaseActivity(),
                         if (query.isEmpty) {
                             showErrorToastMessage()
                         } else {
-                            if (query.documents.size > 1){
+                            if (query.documents.size > 1) {
                                 showErrorToastMessage()
                                 return@addOnSuccessListener
                             }
 
-                            val firestoreModel = query.documents[0].toObject(com.victor.dogbreeds.business.models.firestore.UserModel::class.java)!!
+                            val firestoreModel =
+                                query.documents[0].toObject(com.victor.dogbreeds.business.models.firestore.UserModel::class.java)!!
 
-                            userModel = UserModel(fullname = firestoreModel.fullname!!, email = firestoreModel.email!!, birthdate = firestoreModel.birthdate!!, id = query.documents[0].id)
+                            userModel = UserModel(
+                                fullname = firestoreModel.fullname!!,
+                                email = firestoreModel.email!!,
+                                birthdate = firestoreModel.birthdate!!,
+                                id = query.documents[0].id
+                            )
 
                             presenter.getAllBreeds(userModel.id)
                         }
