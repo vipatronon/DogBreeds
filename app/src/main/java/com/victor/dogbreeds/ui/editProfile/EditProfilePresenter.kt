@@ -82,6 +82,9 @@ class EditProfilePresenter(
             return
         }
 
+        view.hideButton()
+        view.showShimmer()
+
         updateFullname(fullName) {
             updatebirthdate(birthdate) {
                 updatePassword(password) {

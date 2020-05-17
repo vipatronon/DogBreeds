@@ -18,6 +18,8 @@ interface EditProfileContract {
         fun requestLogout()
         fun requestLogoutToChangeUserName()
         fun displayCorrectInfosToast()
+        fun hideButton()
+        fun showShimmer()
     }
 
     interface Presenter {

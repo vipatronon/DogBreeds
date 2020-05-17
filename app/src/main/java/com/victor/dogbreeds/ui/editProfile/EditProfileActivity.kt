@@ -2,6 +2,7 @@ package com.victor.dogbreeds.ui.editProfile
 
 import android.content.Context
 import android.content.Intent
+import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -147,6 +148,14 @@ class EditProfileActivity : BaseActivity(), EditProfileContract.View, IValidator
 
     override fun displayCorrectInfosToast() {
         Toast.makeText(this, getString(R.string.editProfile_reviewInfo), Toast.LENGTH_SHORT).show()
+    }
+
+    override fun hideButton() {
+        editProfileConfirmButton.visibility = View.GONE
+    }
+
+    override fun showShimmer() {
+        editProfileShimmer.visibility = View.VISIBLE
     }
 
     private fun fillFields(userModel: UserModel) {
