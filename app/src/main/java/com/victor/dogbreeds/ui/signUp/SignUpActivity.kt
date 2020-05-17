@@ -2,6 +2,7 @@ package com.victor.dogbreeds.ui.signUp
 
 import android.content.Context
 import android.content.Intent
+import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
@@ -18,7 +19,6 @@ import org.koin.core.parameter.parametersOf
 class SignUpActivity : BaseActivity(), SignUpContract.View, IValidators by Validators() {
     override val layoutResource: Int = R.layout.activity_sign_up
     private val presenter: SignUpContract.Presenter by inject { parametersOf(this) }
-    private lateinit var auth: FirebaseAuth
 
     companion object {
         fun newInstance(context: Context): Intent {
@@ -27,13 +27,19 @@ class SignUpActivity : BaseActivity(), SignUpContract.View, IValidators by Valid
     }
 
     override fun start() {
-        auth = FirebaseAuth.getInstance()
+        presenter.start()
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
     }
 
     override fun setEvents() {
         signupSignUpButton.setOnClickListener {
-            signUp()
+            presenter.signUp(
+                this,
+                signupName.textFieldInput.text.toString(),
+                signupEmail.textFieldInput.text.toString(),
+                signupPassword.textFieldInput.text.toString(),
+                signupBirthdate.textFieldInput.text.toString()
+            )
         }
 
         signupName.textFieldInput.addTextChangedListener(addValidator(this) { textToValidate ->
@@ -110,26 +116,19 @@ class SignUpActivity : BaseActivity(), SignUpContract.View, IValidators by Valid
             .show()
     }
 
-    private fun signUp() {
-        val email = signupEmail.textFieldInput.text.toString()
-        val password = signupPassword.textFieldInput.text.toString()
+    override fun hideButton() {
+        signupSignUpButton.visibility = View.GONE
+    }
 
-        if (email.isEmpty() || password.isEmpty()) {
-            displayFillFieldsToast()
-            return
-        }
+    override fun showShimmer() {
+        signupShimmer.visibility = View.VISIBLE
+    }
 
-        auth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    presenter.createUser(
-                        signupName.textFieldInput.text.toString(),
-                        signupEmail.textFieldInput.text.toString(),
-                        signupBirthdate.textFieldInput.text.toString()
-                    )
-                } else {
-                    displayCouldNotCreateAccountToast()
-                }
-            }
+    override fun hideShimmer() {
+        signupShimmer.visibility = View.GONE
+    }
+
+    override fun showButton() {
+        signupSignUpButton.visibility = View.VISIBLE
     }
 }

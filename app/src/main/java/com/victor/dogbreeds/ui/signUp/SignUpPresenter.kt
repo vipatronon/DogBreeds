@@ -1,5 +1,7 @@
 package com.victor.dogbreeds.ui.signUp
 
+import android.app.Activity
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.victor.dogbreeds.business.FirestoreRefs
 import com.victor.dogbreeds.util.Validators
@@ -14,8 +16,13 @@ class SignUpPresenter(
     private var validEmail = false
     private var validPassword = false
     private var validBirthdate = false
-
     private val docRef = FirebaseFirestore.getInstance().collection(FirestoreRefs.usersCollection)
+
+    private lateinit var auth: FirebaseAuth
+
+    override fun start() {
+        auth = FirebaseAuth.getInstance()
+    }
 
     override fun onFinishEditFullname(textToValidate: String) {
         validFullname = validateTextLength(textToValidate, 5)
@@ -57,26 +64,50 @@ class SignUpPresenter(
         }
     }
 
-    override fun createUser(fullName: String, email: String, birthdate: String) {
-        if (validFullname &&
-            validEmail &&
-            validPassword &&
-            validBirthdate
+    override fun signUp(
+        activity: Activity,
+        fullname: String,
+        email: String,
+        password: String,
+        birthdate: String
+    ) {
+        if (!validFullname ||
+            !validEmail ||
+            !validPassword ||
+            !validBirthdate
         ) {
-            val dataToSave = hashMapOf<String, Any>()
-
-            dataToSave[FirestoreRefs.userFullname] = fullName
-            dataToSave[FirestoreRefs.userEmail] = email
-            dataToSave[FirestoreRefs.userBirthdate] = birthdate
-
-            docRef.add(dataToSave).addOnSuccessListener {
-                view.displaySignUpSuccessfullyToast()
-                view.openHomeActivity()
-            }.addOnFailureListener {
-                view.displayCouldNotCreateAccountToast()
-            }
-        } else {
             view.displayFillFieldsToast()
+            return
+        }
+        view.hideButton()
+        view.showShimmer()
+
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(activity) { task ->
+                if (task.isSuccessful) {
+                    createUser(fullname, email, birthdate)
+                } else {
+                    view.displayCouldNotCreateAccountToast()
+                    view.hideShimmer()
+                    view.showButton()
+                }
+            }
+    }
+
+    private fun createUser(fullName: String, email: String, birthdate: String) {
+        val dataToSave = hashMapOf<String, Any>()
+
+        dataToSave[FirestoreRefs.userFullname] = fullName
+        dataToSave[FirestoreRefs.userEmail] = email
+        dataToSave[FirestoreRefs.userBirthdate] = birthdate
+
+        docRef.add(dataToSave).addOnSuccessListener {
+            view.displaySignUpSuccessfullyToast()
+            view.openHomeActivity()
+        }.addOnFailureListener {
+            view.displayCouldNotCreateAccountToast()
+            view.hideShimmer()
+            view.showButton()
         }
     }
 }
