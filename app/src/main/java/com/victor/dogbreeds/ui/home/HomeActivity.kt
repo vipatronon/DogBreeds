@@ -2,6 +2,7 @@ package com.victor.dogbreeds.ui.home
 
 import android.content.Context
 import android.content.Intent
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -85,5 +86,13 @@ class HomeActivity : BaseActivity(),
 
     override fun setUserModel(userModel: UserModel) {
         this.userModel = userModel
+    }
+
+    override fun startShimmer() {
+        homeShimmer.visibility = View.VISIBLE
+    }
+
+    override fun stopShimmer() {
+        homeShimmer.visibility = View.GONE
     }
 }

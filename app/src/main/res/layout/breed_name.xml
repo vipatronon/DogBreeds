@@ -25,5 +25,4 @@
         android:src="@drawable/ic_favorite"
 
         android:layout_gravity="end"/>
-
 </FrameLayout>

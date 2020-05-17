@@ -9,6 +9,8 @@ interface HomeContract {
         fun setBreeds(breeds: List<BreedsModel>)
         fun showErrorToastMessage()
         fun setUserModel(userModel: UserModel)
+        fun startShimmer()
+        fun stopShimmer()
     }
 
     interface Presenter {

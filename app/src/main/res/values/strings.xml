@@ -39,7 +39,7 @@
     <string name="editProfile_reviewInfo">Please review provided info</string>
 
     <!-- Home Screen -->
-    <string name="home_errorRetrievingInfo">Error retrieving account information</string>
+    <string name="home_errorRetrievingInfo">Error retrieving information</string>
     <string name="home_searchQueryHint">Search for a breed</string>
 
 </resources>

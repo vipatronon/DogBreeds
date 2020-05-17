@@ -82,6 +82,7 @@ class HomePresenter(
     }
 
     private fun fetchDataLocally() {
+        view.stopShimmer()
         appRepositoryContract.getAllBreeds()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -104,6 +105,7 @@ class HomePresenter(
     }
 
     private fun fetchDataFromInternet(userId: String) {
+        view.startShimmer()
         val favoriteBreedsCollection =
             users.document(userId).collection(FirestoreRefs.favoritesCollection)
 
@@ -123,6 +125,7 @@ class HomePresenter(
                     .doOnSubscribe { disposables.add(it) }
                     .subscribe(object : DisposableObserver<List<BreedsModel>>() {
                         override fun onComplete() {
+                            view.stopShimmer()
                         }
 
                         override fun onNext(t: List<BreedsModel>) {
@@ -155,6 +158,8 @@ class HomePresenter(
                         }
 
                         override fun onError(e: Throwable) {
+                            view.stopShimmer()
+                            view.showErrorToastMessage()
                         }
                     })
             }
