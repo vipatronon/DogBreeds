@@ -28,6 +28,8 @@ class SignInPresenter(
             view.showMandatoryFieldsToast()
             return
         }
+        view.hideSignInButton()
+        view.showShimmer()
 
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(activity) { task ->
@@ -35,6 +37,8 @@ class SignInPresenter(
                     view.openHomeActivity()
                 } else {
                     view.showSignInErrorToast()
+                    view.hideShimmer()
+                    view.showSignInButton()
                 }
             }
     }

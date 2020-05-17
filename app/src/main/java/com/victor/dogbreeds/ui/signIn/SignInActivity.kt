@@ -2,6 +2,7 @@ package com.victor.dogbreeds.ui.signIn
 
 import android.content.Context
 import android.content.Intent
+import android.view.View
 import android.widget.Toast
 import com.victor.dogbreeds.R
 import com.victor.dogbreeds.ui.base.BaseActivity
@@ -58,6 +59,22 @@ class SignInActivity : BaseActivity(), SignInContract.View, IValidators by Valid
     override fun showFillEmailToast() {
         Toast.makeText(this, getString(R.string.signin_fillEmailField), Toast.LENGTH_SHORT)
             .show()
+    }
+
+    override fun hideSignInButton() {
+        signinSignInButton.visibility = View.GONE
+    }
+
+    override fun showShimmer() {
+        signinShimmer.visibility = View.VISIBLE
+    }
+
+    override fun hideShimmer() {
+        signinShimmer.visibility = View.GONE
+    }
+
+    override fun showSignInButton() {
+        signinSignInButton.visibility = View.VISIBLE
     }
 
     override fun showCouldNotResetPasswordToast() {

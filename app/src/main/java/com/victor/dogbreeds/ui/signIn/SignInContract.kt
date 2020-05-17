@@ -12,6 +12,10 @@ interface SignInContract {
         fun showCheckEmailToast()
         fun showCouldNotResetPasswordToast()
         fun showFillEmailToast()
+        fun hideSignInButton()
+        fun showShimmer()
+        fun hideShimmer()
+        fun showSignInButton()
     }
 
     interface Presenter {
