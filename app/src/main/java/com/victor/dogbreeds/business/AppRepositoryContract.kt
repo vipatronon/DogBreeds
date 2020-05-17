@@ -8,7 +8,7 @@ interface AppRepositoryContract {
 
     fun insertBreed(vararg breed: Breed)
 
-    fun updateBreed(breed: Breed): Completable
+    fun updateBreed(breed: Breed)
 
     fun deleteAllBreeds(): Completable
 

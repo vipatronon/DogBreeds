@@ -14,6 +14,7 @@ import com.victor.dogbreeds.business.models.UserModel
 import com.victor.dogbreeds.ui.base.BaseActivity
 import com.victor.dogbreeds.ui.breedDetails.BreedDetailsActivity
 import com.victor.dogbreeds.ui.editProfile.EditProfileActivity
+import com.victor.dogbreeds.util.ConnectionType
 import com.victor.dogbreeds.util.getConnectionType
 import kotlinx.android.synthetic.main.activity_home.*
 import org.koin.android.ext.android.inject
@@ -28,6 +29,7 @@ class HomeActivity : BaseActivity(),
 
     private lateinit var auth: FirebaseAuth
     private lateinit var userModel: UserModel
+    private lateinit var connectionType: ConnectionType
 
     companion object {
         fun newInstance(context: Context): Intent {
@@ -37,9 +39,10 @@ class HomeActivity : BaseActivity(),
     }
 
     override fun start() {
+        connectionType = getConnectionType(this)
         auth = FirebaseAuth.getInstance()
 
-        presenter.start(getConnectionType(this))
+        presenter.start(connectionType)
         getPlayerId()
     }
 
@@ -80,18 +83,7 @@ class HomeActivity : BaseActivity(),
     }
 
     override fun favoriteBreed(breed: BreedsModel) {
-        breed.isFavorite = !breed.isFavorite
-
-        val dataToSave = hashMapOf<String, Any>()
-        dataToSave[FirestoreRefs.favoriteBreed] = breed.isFavorite
-        dataToSave[FirestoreRefs.masterBreed] = breed.masterBreed
-        dataToSave[FirestoreRefs.subBreed] = breed.subBreed
-
-        users
-            .document(userModel.id)
-            .collection(FirestoreRefs.favoritesCollection)
-            .document("${breed.masterBreed}-${breed.subBreed}")
-            .set(dataToSave)
+        presenter.favoriteBreed(userModel.id, breed)
     }
 
     private fun getPlayerId() {

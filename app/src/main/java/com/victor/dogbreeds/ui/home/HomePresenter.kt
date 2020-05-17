@@ -9,7 +9,6 @@ import com.victor.dogbreeds.business.models.firestore.FavoriteBreed
 import com.victor.dogbreeds.entities.Breed
 import com.victor.dogbreeds.util.AppUtil
 import com.victor.dogbreeds.util.ConnectionType
-import io.reactivex.Completable
 import io.reactivex.SingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -33,6 +32,40 @@ class HomePresenter(
 
     override fun start(connectionType: ConnectionType) {
         this.connectionType = connectionType
+    }
+
+    override fun favoriteBreed(id: String, breed: BreedsModel) {
+        breed.isFavorite = !breed.isFavorite
+
+        if (connectionType == ConnectionType.None) {
+            saveFavoriteBreedLocally(breed)
+        } else {
+            sendFavoriteBreedToFirebase(id, breed)
+        }
+    }
+
+    private fun saveFavoriteBreedLocally(breed: BreedsModel) {
+        appRepositoryContract.updateBreed(
+            Breed(
+                masterBreed = breed.masterBreed,
+                subBreed = breed.subBreed,
+                favorite = breed.isFavorite,
+                displayName = breed.displayName
+            )
+        )
+    }
+
+    private fun sendFavoriteBreedToFirebase(id: String, breed: BreedsModel) {
+        val dataToSave = hashMapOf<String, Any>()
+        dataToSave[FirestoreRefs.favoriteBreed] = breed.isFavorite
+        dataToSave[FirestoreRefs.masterBreed] = breed.masterBreed
+        dataToSave[FirestoreRefs.subBreed] = breed.subBreed
+
+        users
+            .document(id)
+            .collection(FirestoreRefs.favoritesCollection)
+            .document("${breed.masterBreed}-${breed.subBreed}")
+            .set(dataToSave)
     }
 
     override fun getAllBreeds(userId: String) {

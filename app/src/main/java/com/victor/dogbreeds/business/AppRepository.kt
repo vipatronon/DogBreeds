@@ -17,7 +17,12 @@ class AppRepository(
             .subscribe()
     }
 
-    override fun updateBreed(breed: Breed) = breedsDao.update(breed)
+    override fun updateBreed(breed: Breed) {
+        breedsDao.update(breed)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe()
+    }
 
     override fun deleteAllBreeds() = breedsDao.deleteAll()
 

@@ -12,5 +12,6 @@ interface HomeContract {
         fun destroy()
         fun getAllBreeds(userId: String)
         fun start(connectionType: ConnectionType)
+        fun favoriteBreed(id: String, breed: BreedsModel)
     }
 }
