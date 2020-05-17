@@ -59,6 +59,7 @@
         android:layout_height="@dimen/homeScreen_applogo"
 
         android:layout_marginStart="@dimen/margin_2"
+        android:tint="@color/colorFont"
 
         android:src="@drawable/ic_dog_silhouette"
 
@@ -94,6 +95,9 @@
 
         android:layout_marginEnd="@dimen/margin_2"
 
+        android:background="?selectableItemBackgroundBorderless"
+
+        android:tint="@color/colorFont"
         android:src="@drawable/ic_profile_picture"
         app:layout_constraintBottom_toBottomOf="@+id/homeLabel"
         app:layout_constraintEnd_toEndOf="@+id/homeLabel"

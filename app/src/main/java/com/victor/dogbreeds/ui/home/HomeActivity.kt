@@ -5,6 +5,7 @@ import android.content.Intent
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.victor.dogbreeds.R
 import com.victor.dogbreeds.business.models.BreedsModel
@@ -50,6 +51,12 @@ class HomeActivity : BaseActivity(),
     override fun setBreeds(breeds: List<BreedsModel>) {
         homeBreedsList.apply {
 
+            addItemDecoration(
+                DividerItemDecoration(
+                    context,
+                    LinearLayoutManager.VERTICAL
+                )
+            )
             val breedsAdapter = BreedsAdapter(breeds, this@HomeActivity)
 
             adapter = breedsAdapter
