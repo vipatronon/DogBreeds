@@ -9,7 +9,7 @@ buildscript {
         rxjava_version = '2.2.6'
         rxandroid_version = '2.1.0'
         glide_version = '4.9.0'
-        room_version = "2.1.0"
+        room_version = "2.2.5"
     }
     repositories {
         google()

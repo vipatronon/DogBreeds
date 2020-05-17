@@ -16,8 +16,7 @@ object DatabaseModules {
         }
 
         single { get<AppDatabase>().breedsDao() }
-        single { get<AppDatabase>().userDao() }
 
-        single<AppRepositoryContract> { AppRepository(get(), get()) }
+        single<AppRepositoryContract> { AppRepository(get()) }
     }
 }

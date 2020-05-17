@@ -1,16 +1,13 @@
 package com.victor.dogbreeds.business.daos
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 import com.victor.dogbreeds.entities.Breed
 import io.reactivex.Completable
 import io.reactivex.Single
 
 @Dao
 interface BreedsDao {
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(vararg breed: Breed): Completable
 
     @Update

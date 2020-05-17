@@ -125,20 +125,13 @@ class HomePresenter(
     private fun updateRoom(breeds: List<BreedsModel>) {
         val x = breeds.map {
             Breed(
-                id = null,
+                displayName = it.displayName,
                 masterBreed = it.masterBreed,
                 subBreed = it.subBreed,
-                displayName = it.displayName,
                 favorite = it.isFavorite
             )
         }
 
-        appRepositoryContract.deleteAllBreeds()
-            .andThen(Completable.fromAction {
-                appRepositoryContract.insertBreed(*x.toTypedArray())
-            })
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribeOn(Schedulers.single())
-            .subscribe()
+        appRepositoryContract.insertBreed(*x.toTypedArray())
     }
 }
