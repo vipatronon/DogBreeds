@@ -3,8 +3,6 @@ package com.victor.dogbreeds.ui.signIn
 import android.content.Context
 import android.content.Intent
 import android.widget.Toast
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.victor.dogbreeds.R
 import com.victor.dogbreeds.ui.base.BaseActivity
 import com.victor.dogbreeds.ui.home.HomeActivity
@@ -19,7 +17,6 @@ import org.koin.core.parameter.parametersOf
 class SignInActivity : BaseActivity(), SignInContract.View, IValidators by Validators() {
     override val layoutResource: Int = R.layout.activity_sign_in
     private val presenter: SignInContract.Presenter by inject { parametersOf(this) }
-    private lateinit var auth: FirebaseAuth
 
     companion object {
         fun newInstance(context: Context): Intent {
@@ -30,10 +27,6 @@ class SignInActivity : BaseActivity(), SignInContract.View, IValidators by Valid
 
     override fun start() {
         presenter.start()
-
-        auth = FirebaseAuth.getInstance()
-
-        checkSignedInUser(auth.currentUser)
     }
 
     override fun setEvents() {
@@ -42,7 +35,17 @@ class SignInActivity : BaseActivity(), SignInContract.View, IValidators by Valid
         }
 
         signinSignInButton.setOnClickListener {
-            signIn()
+            presenter.signIn(
+                this,
+                signinEmail.textFieldInput.text.toString(),
+                signinPassword.textFieldInput.text.toString()
+            )
+        }
+
+        signinForgotPasswordButton.setOnClickListener {
+            presenter.resetPassword(
+                signinEmail.textFieldInput.text.toString()
+            )
         }
 
         signinEmail.textFieldInput.addTextChangedListener(addValidator(this) { textToValidate ->
@@ -50,6 +53,21 @@ class SignInActivity : BaseActivity(), SignInContract.View, IValidators by Valid
                 textToValidate
             )
         })
+    }
+
+    override fun showFillEmailToast() {
+        Toast.makeText(this, getString(R.string.signin_fillEmailField), Toast.LENGTH_SHORT)
+            .show()
+    }
+
+    override fun showCouldNotResetPasswordToast() {
+        Toast.makeText(this, getString(R.string.signin_couldNotResetPassword), Toast.LENGTH_SHORT)
+            .show()
+    }
+
+    override fun showCheckEmailToast() {
+        Toast.makeText(this, getString(R.string.signin_passwordResetSuccess), Toast.LENGTH_SHORT)
+            .show()
     }
 
     override fun showEmailInputError() {
@@ -60,42 +78,17 @@ class SignInActivity : BaseActivity(), SignInContract.View, IValidators by Valid
         signinEmail.textFieldBox.error = ""
     }
 
-    private fun signIn() {
-        val email = signinEmail.textFieldInput.text.toString()
-        val password = signinPassword.textFieldInput.text.toString()
-
-        if (email.isEmpty() || password.isEmpty()) {
-            showMandatoryFieldsToast()
-            return
-        }
-
-        auth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    openHomeActivity()
-                } else {
-                    showSignInErrorToast()
-                }
-            }
-    }
-
-    private fun showMandatoryFieldsToast() {
-        Toast.makeText(this, getString(R.string.signin_fillMandatoryFields), Toast.LENGTH_LONG)
+    override fun showMandatoryFieldsToast() {
+        Toast.makeText(this, getString(R.string.signin_fillMandatoryFields), Toast.LENGTH_SHORT)
             .show()
     }
 
-    private fun showSignInErrorToast() {
+    override fun showSignInErrorToast() {
         Toast.makeText(this, getString(R.string.signin_signInErrorMessage), Toast.LENGTH_SHORT)
             .show()
     }
 
-    private fun openHomeActivity() {
+    override fun openHomeActivity() {
         startActivity(HomeActivity.newInstance(this))
-    }
-
-    private fun checkSignedInUser(user: FirebaseUser?) {
-        if (user != null) {
-            openHomeActivity()
-        }
     }
 }

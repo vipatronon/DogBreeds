@@ -12,6 +12,10 @@
     <string name="signin_signInTextButton">Sign In</string>
     <string name="signin_fillMandatoryFields">Please fill e-mail and password, or SignUp</string>
     <string name="signin_signInErrorMessage">Invalid credendials</string>
+    <string name="signin_forgotPasswordTextButton">Forgot Password</string>
+    <string name="signin_fillEmailField">Please fill email field to reset password</string>
+    <string name="signin_couldNotResetPassword">Could not send email to reset password</string>
+    <string name="signin_passwordResetSuccess">Check your email to reset your password</string>
 
     <!-- SignUp Screen -->
     <string name="signup_personalNameTextHint">Fullname</string>
