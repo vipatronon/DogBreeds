@@ -6,6 +6,7 @@ interface SplashContract {
         fun sendToSignIn()
     }
     interface Presenter {
+        fun start()
         fun checkSignedInStatus()
     }
 }
