@@ -18,7 +18,6 @@ class BreedsAdapter(
         filteredBreeds = breeds
     }
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         return ItemBreed(inflater.inflate(R.layout.breed_name, parent, false))
@@ -40,7 +39,7 @@ class BreedsAdapter(
                 } else {
                     val resultList = mutableListOf<BreedsModel>()
                     for(row in breeds){
-                        if (row.displayName.contains(charSearch.toLowerCase())){
+                        if (row.displayName.toLowerCase().contains(charSearch.toLowerCase())){
                             resultList.add(row)
                         }
                     }
