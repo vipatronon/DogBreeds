@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:shimmer="http://schemas.android.com/tools"
     android:background="@color/colorPrimary">
 
     <com.victor.dogbreeds.ui.common.BackButton
@@ -31,19 +32,37 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Labrador" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/breedDetailsPlaceholder"
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/breedDetailsShimmer"
         android:layout_width="match_parent"
         android:layout_height="250dp"
 
-        android:src="@drawable/ic_image_placeholder"
-
-        android:tint="@color/colorAccent"
+        android:layout_gravity="top|start"
+        android:layout_marginStart="@dimen/margin_1"
+        android:layout_marginTop="@dimen/margin_1"
 
         app:layout_constraintBottom_toBottomOf="@+id/breedDetailsPicture"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/breedDetailsPicture" />
+        app:layout_constraintTop_toTopOf="@+id/breedDetailsPicture"
+        shimmer:duration="800">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/breedDetailsPlaceholder"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+
+            android:src="@drawable/ic_image_placeholder"
+
+            android:tint="@color/colorAccent"
+
+            app:layout_constraintBottom_toBottomOf="@+id/breedDetailsPicture"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/breedDetailsPicture" />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/breedDetailsPicture"
