@@ -1,3 +1,49 @@
 <resources>
-    <string name="app_name">DogBreeds</string>
+    <string name="app_name">Best Doggo</string>
+    <!-- Validators -->
+    <string name="validators_messageIncorrectDateFormat">Date must be in format DD/MM/AAAA</string>
+    <string name="validators_messageLength">Must contain at least 5 chatacters</string>
+    <string name="validators_emailError">Please fill a valid email</string>
+
+    <!-- SignIn Screen -->
+    <string name="signin_emailTextHint">E-mail</string>
+    <string name="signin_passwordTextHint">Password</string>
+    <string name="signin_signUpTextButton">Sign Up</string>
+    <string name="signin_signInTextButton">Sign In</string>
+    <string name="signin_fillMandatoryFields">Please fill e-mail and password, or SignUp</string>
+    <string name="signin_signInErrorMessage">Invalid credendials</string>
+    <string name="signin_forgotPasswordTextButton">Forgot Password</string>
+    <string name="signin_fillEmailField">Please fill email field to reset password</string>
+    <string name="signin_couldNotResetPassword">Could not send email to reset password</string>
+    <string name="signin_passwordResetSuccess">Check your email to reset your password</string>
+
+    <!-- SignUp Screen -->
+    <string name="signup_personalNameTextHint">Fullname</string>
+    <string name="signup_emailTextHint">E-mail</string>
+    <string name="signup_passwordTextHint">Password</string>
+    <string name="signup_birthdateTextHint">Birthdate</string>
+    <string name="signup_screenTitle">SignUp</string>
+    <string name="signup_signUpTextButton">Sign Up</string>
+    <string name="signup_fillMandatoryFields">Please fill all fields correctly</string>
+    <string name="signup_couldNotCreateAccount">Could not create account right now. Try again later</string>
+    <string name="signup_successfullyMessage">Signed up successfully</string>
+
+    <!-- Edit Profile Screen -->
+    <string name="editProfile_personalNameTextHint">Fullname</string>
+    <string name="editProfile_emailTextHint">E-mail</string>
+    <string name="editProfile_passwordTextHint">Password</string>
+    <string name="editProfile_birthdateTextHint">Birthdate</string>
+    <string name="editProfile_screenTitle">Edit Profile</string>
+    <string name="editProfile_confirmTextButton">Confirm</string>
+    <string name="editProfile_errorUpdatingInfo">Could not update account info</string>
+    <string name="editProfile_successUpdatingInfo">Account info updated successfully</string>
+    <string name="editProfile_dialogTitle">Logout required</string>
+    <string name="editProfile_emailChangesEffective">To make the email change effective, a logout is required</string>
+    <string name="editProfile_logoutFirst">In order to effectively change your e-mail, you must logout first</string>
+    <string name="editProfile_reviewInfo">Please review provided info</string>
+
+    <!-- Home Screen -->
+    <string name="home_errorRetrievingInfo">Error retrieving information</string>
+    <string name="home_searchQueryHint">Search for a breed</string>
+
 </resources>

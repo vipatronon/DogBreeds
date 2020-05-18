@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:shimmer="http://schemas.android.com/tools"
+    android:background="@color/colorPrimary">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/signinFieldsGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/signinAppLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+
+        android:layout_marginBottom="@dimen/margin_2"
+
+        android:src="@drawable/ic_dog_silhouette"
+
+        android:tint="@color/colorAccent"
+
+        app:layout_constraintBottom_toTopOf="@+id/signinAppTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/signinAppTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="@dimen/margin_13"
+        android:fontFamily="@font/bigswash_regular"
+        android:text="@string/app_name"
+
+        android:textColor="@color/colorAccent"
+
+        android:textSize="@dimen/fontsize_4"
+
+        app:layout_constraintBottom_toTopOf="@+id/signinFieldsGuideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.victor.dogbreeds.ui.common.TextField
+        android:id="@+id/signinEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="@dimen/margin_2"
+
+        android:inputType="textEmailAddress"
+        app:hintText="@string/signin_emailTextHint"
+
+        app:layout_constraintBottom_toTopOf="@+id/signinFieldsGuideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.victor.dogbreeds.ui.common.TextField
+        android:id="@+id/signinPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="@dimen/margin_2"
+
+        android:inputType="textPassword"
+        app:hintText="@string/signin_passwordTextHint"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signinFieldsGuideline" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/signinSignupButton"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="@dimen/button_width_outlined"
+        android:layout_height="@dimen/button_height_outlined"
+
+        android:layout_marginTop="@dimen/margin_3"
+        android:text="@string/signin_signUpTextButton"
+        android:textAllCaps="false"
+        android:textColor="@color/colorContrast"
+
+        app:cornerRadius="@dimen/button_radius"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/signinForgotPasswordButton"
+        app:layout_constraintTop_toBottomOf="@+id/signinPassword" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/signinForgotPasswordButton"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="@dimen/button_width_outlined"
+        android:layout_height="@dimen/button_height_outlined"
+
+        android:layout_marginTop="@dimen/margin_3"
+        android:text="@string/signin_forgotPasswordTextButton"
+        android:textAllCaps="false"
+        android:textColor="@color/colorContrast"
+
+        app:cornerRadius="@dimen/button_radius"
+
+        app:layout_constraintStart_toEndOf="@+id/signinSignupButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signinPassword" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/signinShimmer"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginBottom="@dimen/margin_4"
+        android:visibility="invisible"
+
+        android:layout_gravity="top|start"
+        android:layout_marginTop="@dimen/margin_4"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signinSignupButton"
+        shimmer:duration="800">
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="@dimen/button_width"
+
+            android:layout_height="@dimen/button_height"
+            android:layout_marginBottom="@dimen/margin_4"
+
+            android:backgroundTint="@color/colorAccent"
+
+            android:elevation="@dimen/button_elevation"
+
+            android:text="@string/signin_signInTextButton"
+            android:textColor="@color/colorPrimary"
+            android:textAllCaps="false"
+            app:cornerRadius="@dimen/button_radius"/>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/signinSignInButton"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="@dimen/button_width"
+
+        android:layout_height="@dimen/button_height"
+        android:layout_marginTop="@dimen/margin_4"
+
+        android:elevation="@dimen/button_elevation"
+
+        android:text="@string/signin_signInTextButton"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimary"
+        app:cornerRadius="@dimen/button_radius"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signinSignupButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

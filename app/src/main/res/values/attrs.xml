@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TextField">
+        <attr name="hintText" format="string"/>
+        <attr name="android:inputType" format="integer"/>
+    </declare-styleable>
+    <declare-styleable name="BackButton">
+        <attr name="button_color" format="color"/>
+    </declare-styleable>
+</resources>

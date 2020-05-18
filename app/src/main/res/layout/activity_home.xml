@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:shimmer="http://schemas.android.com/tools"
+    android:background="@color/colorPrimary">
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/homeShimmer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_gravity="top|start"
+        android:layout_marginStart="@dimen/margin_1"
+        android:layout_marginTop="@dimen/margin_1"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/homeLabel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        shimmer:duration="800">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:orientation="vertical">
+            <include layout="@layout/data_placeholder_layout" />
+            <include layout="@layout/data_placeholder_layout" />
+            <include layout="@layout/data_placeholder_layout" />
+            <include layout="@layout/data_placeholder_layout" />
+            <include layout="@layout/data_placeholder_layout" />
+            <include layout="@layout/data_placeholder_layout" />
+            <include layout="@layout/data_placeholder_layout" />
+            <include layout="@layout/data_placeholder_layout" />
+            <include layout="@layout/data_placeholder_layout" />
+            <include layout="@layout/data_placeholder_layout" />
+            <include layout="@layout/data_placeholder_layout" />
+            <include layout="@layout/data_placeholder_layout" />
+            <include layout="@layout/data_placeholder_layout" />
+            <include layout="@layout/data_placeholder_layout" />
+        </LinearLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <View
+        android:id="@+id/homeLabel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/homeScreen_labelHeight"
+        android:background="@color/colorAccent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/homeAppLogo"
+
+        android:layout_width="@dimen/homeScreen_applogo"
+        android:layout_height="@dimen/homeScreen_applogo"
+
+        android:layout_marginStart="@dimen/margin_2"
+        android:tint="@color/colorFont"
+
+        android:src="@drawable/ic_dog_silhouette"
+
+        app:layout_constraintBottom_toBottomOf="@+id/homeLabel"
+        app:layout_constraintStart_toStartOf="@+id/homeLabel"
+        app:layout_constraintTop_toTopOf="@+id/homeLabel" />
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/homeBreedsSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_6"
+        android:layout_marginEnd="@dimen/margin_6"
+        android:background="@color/colorPrimary"
+        android:backgroundTint="@color/colorAccent"
+
+        android:textCursorDrawable="@null"
+
+        app:iconifiedByDefault="false"
+
+        app:layout_constraintBottom_toBottomOf="@+id/homeLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/homeLabel"
+        app:queryBackground="@null"
+        app:queryHint="@string/home_searchQueryHint" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/homeProfileButton"
+        android:layout_width="@dimen/homeScreen_profilePicture"
+        android:layout_height="@dimen/homeScreen_profilePicture"
+
+        android:layout_marginEnd="@dimen/margin_2"
+
+        android:background="?selectableItemBackgroundBorderless"
+
+        android:tint="@color/colorFont"
+        android:src="@drawable/ic_profile_picture"
+        app:layout_constraintBottom_toBottomOf="@+id/homeLabel"
+        app:layout_constraintEnd_toEndOf="@+id/homeLabel"
+        app:layout_constraintTop_toTopOf="@+id/homeLabel" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/homeBreedsList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_1"
+        android:layout_marginEnd="@dimen/margin_1"
+        android:paddingBottom="@dimen/margin_1"
+        android:clipToPadding="false"
+
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/homeLabel" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

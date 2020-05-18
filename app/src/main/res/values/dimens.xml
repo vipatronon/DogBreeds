@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Margin attrs -->
+    <dimen name="margin_1">8dp</dimen>
+    <dimen name="margin_2">16dp</dimen>
+    <dimen name="margin_3">24dp</dimen>
+    <dimen name="margin_4">36dp</dimen>
+    <dimen name="margin_5">42dp</dimen>
+    <dimen name="margin_6">48dp</dimen>
+    <dimen name="margin_7">56dp</dimen>
+    <dimen name="margin_8">64dp</dimen>
+    <dimen name="margin_9">72dp</dimen>
+    <dimen name="margin_10">80dp</dimen>
+    <dimen name="margin_13">104dp</dimen>
+
+    <!-- Font attrs -->
+    <dimen name="fontsize_2">16sp</dimen>
+    <dimen name="fontsize_3">24sp</dimen>
+    <dimen name="fontsize_4">36sp</dimen>
+    <dimen name="fontsize_7">56sp</dimen>
+
+    <!-- Button attrs -->
+    <dimen name="button_radius">25dp</dimen>
+    <dimen name="button_elevation">3dp</dimen>
+    <dimen name="button_width">174dp</dimen>
+    <dimen name="button_height">68dp</dimen>
+    <dimen name="button_width_outlined">150dp</dimen>
+    <dimen name="button_height_outlined">58dp</dimen>
+
+    <!-- Home attrs -->
+    <dimen name="homeScreen_labelHeight">56dp</dimen>
+    <dimen name="homeScreen_applogo">36dp</dimen>
+    <dimen name="homeScreen_profilePicture">30dp</dimen>
+</resources>

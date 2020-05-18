@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:shimmer="http://schemas.android.com/tools"
+    android:background="@color/colorPrimary">
+
+    <com.victor.dogbreeds.ui.common.BackButton
+        android:id="@+id/breedDetailsBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:button_color="@color/colorAccent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/breedDetailsHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_2"
+        android:fontFamily="@font/bigswash_regular"
+        android:textColor="@color/colorAccent"
+
+        android:textSize="@dimen/fontsize_4"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Labrador" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/breedDetailsShimmer"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+
+        android:layout_gravity="top|start"
+        android:layout_marginStart="@dimen/margin_1"
+        android:layout_marginTop="@dimen/margin_1"
+
+        app:layout_constraintBottom_toBottomOf="@+id/breedDetailsPicture"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/breedDetailsPicture"
+        shimmer:duration="800">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/breedDetailsPlaceholder"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+
+            android:src="@drawable/ic_image_placeholder"
+
+            android:tint="@color/colorAccent"
+
+            app:layout_constraintBottom_toBottomOf="@+id/breedDetailsPicture"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/breedDetailsPicture" />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/breedDetailsPicture"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+
+        android:layout_marginTop="@dimen/margin_1"
+
+        android:scaleType="centerCrop"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/breedDetailsHeader"
+        tools:src="@tools:sample/backgrounds/scenic" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
